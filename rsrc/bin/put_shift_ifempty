@@ -1,0 +1,7 @@
+#!/bin/sh
+
+if [[ -s ~/.dq/queue.txt ]] ; then
+    echo "queue is nonempty" >&2
+else
+    put_shift
+fi

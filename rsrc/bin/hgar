@@ -1,0 +1,5 @@
+#!/bin/sh
+repopath=`pwd`
+reponame=`basename $repopath`
+revision=`hg identify -i`
+hg archive -p $reponame $reponame-$revision.tar.gz

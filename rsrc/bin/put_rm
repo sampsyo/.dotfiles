@@ -1,0 +1,21 @@
+#!/usr/bin/env python3
+import requests
+import re
+import sys
+import os
+
+API_ROOT = 'https://api.put.io/v2'
+OAUTH_TOKEN = open(os.path.expanduser('~/.putio_token')).read().strip()
+
+m = re.search(r'download/(\d+)', sys.argv[1])
+if m:
+    file_id = m.group(1)
+    fresp = requests.post(
+        API_ROOT + '/files/delete',
+        params={
+            'oauth_token': OAUTH_TOKEN,
+        },
+        data={
+            'file_ids': file_id,
+        },
+    )

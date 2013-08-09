@@ -1,0 +1,14 @@
+syntax: glob
+
+*.pyc
+*.pyo
+*~
+_etc
+.DS_Store
+*.pbxuser
+.svn
+*.mode1v3
+.*.swp
+
+syntax: re
+^Icon\W$

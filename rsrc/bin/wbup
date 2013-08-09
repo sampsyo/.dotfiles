@@ -1,0 +1,12 @@
+#!/bin/sh
+destdir=$HOME/Dropbox/Backup
+
+if [ `uname` = "Darwin" ]; then
+    b64d="base64 -D"
+else
+    b64d="base64 -d"
+fi
+
+src=data/loglet.db
+dest=$destdir/loglet-`date +"%Y-%m-%d-%H_%M"`.db.bz2
+dotcloud run loglet.www -- "bzip2 < $src | base64 -w0" | $b64d > $dest

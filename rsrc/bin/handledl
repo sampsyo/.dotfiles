@@ -1,0 +1,10 @@
+#!/bin/bash
+if [[ "$1" =~ .(avi|m4v|mkv|mp4)$ ]]; then
+    tvr "$1"
+elif [[ "$1" =~ .(zip)$ ]]; then
+    unzip "$1"
+    chmod -R a+r `basename $1 .zip` || 1
+else
+    echo "not video or zip"
+fi
+put_rm "$2"

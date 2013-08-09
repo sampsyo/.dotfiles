@@ -1,0 +1,39 @@
+[ui]
+username = Adrian Sampson <adrian@radbox.org>
+ignore = ~/.hgignore
+merge = internal:merge
+
+[extensions]
+hgext.fetch=
+hgext.bookmarks=
+hgext.graphlog=
+hgext.mq=
+hgext.convert=
+hgext.transplant=
+hgext.hgk=
+hgext.rebase=
+hgext.schemes=
+hgext.color=
+hgext.progress=
+hgext.record=
+hgext.pager=
+hgext.purge=
+hgext.extdiff=
+hgext.largefiles=
+hggit=
+hgshelve=~/.rsrc/hgext/hgshelve.py
+# hgsubversion=
+hgext.imerge=!
+
+[pager]
+pager=less -eqR
+
+[schemes]
+gh=git://github.com/
+
+[extdiff]
+cmd.wdiff = cwdiff
+opts.wdiff = --diff --ab
+
+[diff]
+git=yes
