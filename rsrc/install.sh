@@ -18,6 +18,7 @@ for fn in $( ls $dotfiles ) ; do
 done
 
 # Poor man's subrepos.
+mkdir -p ~/.vim/bundle
 cd ~/.vim/bundle
 [ -d vundle ] || git clone git://github.com/gmarik/vundle.git
 
