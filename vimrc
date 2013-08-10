@@ -226,6 +226,8 @@ augroup END
 autocmd BufNewFile,BufRead */llvm/* setlocal sw=2 ts=2 sts=2
 autocmd BufNewFile,BufRead */python-musicbrainz-ngs/* setlocal noexpandtab
 autocmd BufNewFile,BufRead */enerc/*.cpp,*/enerc/*.h setlocal sw=2 ts=2 sts=2
+autocmd BufNewFile,BufRead */passert-llvm/*.cpp,*/passert-llvm/*.h
+    \ setlocal sw=2 ts=2 sts=2
 " }}}
 " Backups/swapfiles. {{{
 if exists('%undofile')

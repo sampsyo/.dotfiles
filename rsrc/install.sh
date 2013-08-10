@@ -24,3 +24,4 @@ cd ~/.vim/bundle
 
 echo 'remember:'
 echo 'pip install hg-git'
+echo 'vim +BundleInstall +qall'
