@@ -3,7 +3,7 @@
 
 $script = <<SCRIPT
 apt-get update
-apt-get install -y git mercurial llvm clang zsh tmux ack-grep vim-nox python-pip python-dev
+apt-get install -y git mercurial llvm clang zsh tmux ack-grep vim-nox python-pip python-dev ninja-build cmake
 pip install hg-git
 su vagrant -c "cd ; hg clone https://adrian@bitbucket.org/adrian/.dotfiles ; cd .dotfiles ; ./rsrc/install.sh"
 su vagrant -c "vim +BundleInstall +qall"
