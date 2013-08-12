@@ -1,15 +1,15 @@
 # Load antigen (zsh plugin/bundle manager).
 source $HOME/.rsrc/antigen.zsh
-antigen-lib  # oh-my-zsh base.
-antigen-bundle git
-antigen-bundle pip
-antigen-bundle osx
-antigen-bundle svn
-antigen-bundle vi-mode
-antigen-bundle zsh-users/zsh-syntax-highlighting
-antigen-bundle zsh-users/zsh-completions
-antigen-bundle zsh-users/zsh-history-substring-search
-antigen-apply
+antigen use oh-my-zsh
+antigen bundle git
+antigen bundle pip
+antigen bundle osx
+antigen bundle svn
+antigen bundle vi-mode
+antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle zsh-users/zsh-completions
+antigen bundle zsh-users/zsh-history-substring-search
+antigen apply
 
 # Two-line prompt:
 # PROMPT="%{$fg[green]%}%T %{$fg[green]%}%m %{$fg[green]%}%~
