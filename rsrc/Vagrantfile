@@ -1,0 +1,21 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+$script = <<SCRIPT
+apt-get update
+apt-get install -y git mercurial llvm clang zsh tmux ack-grep vim-nox python-pip python-dev
+pip install hg-git
+su vagrant -c "cd ; hg clone https://adrian@bitbucket.org/adrian/.dotfiles ; cd .dotfiles ; ./rsrc/install.sh"
+su vagrant -c "vim +BundleInstall +qall"
+chsh vagrant -s /bin/zsh
+SCRIPT
+
+Vagrant.configure("2") do |config|
+  config.vm.box = "raring-32"
+  config.vm.box_url = "http://cloud-images.ubuntu.com/vagrant/raring/current/raring-server-cloudimg-i386-vagrant-disk1.box"
+  config.vm.provision :shell, :inline => $script
+  config.ssh.forward_agent = true
+  config.vm.provider :virtualbox do |vb|
+    vb.customize ["modifyvm", :id, "--memory", 2048]
+  end
+end
