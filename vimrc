@@ -31,6 +31,7 @@ Bundle 'vcscommand.vim'
 Bundle 'Zenburn'
 Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'godlygeek/tabular'
+Bundle 'kien/rainbow_parentheses.vim'
 filetype plugin indent on
 
 " }}}
@@ -92,6 +93,9 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '^\.DS_Store$']
 call yankstack#setup()
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
+
+" Rainbow parentheses.
+nmap <leader>R :RainbowParenthesesToggle<CR>
 
 " }}}
 " The basics. {{{
