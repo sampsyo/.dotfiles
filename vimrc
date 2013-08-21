@@ -312,6 +312,9 @@ augroup END
 augroup ft_python
     au!
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
+    au FileType python compiler pyunit
+    au FileType python setlocal makeprg=nosetests
+    au BufNewFile,BufRead */test_*.py setlocal makeprg=nosetests\ %
 augroup END
 
 " }}}
