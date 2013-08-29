@@ -4,3 +4,4 @@
 --ignore-dir=.tox
 --ignore-dir=dist
 --ignore-dir=_site
+--pager=less -FRX
