@@ -16,7 +16,7 @@ antigen apply
 # %{$fg[green]%}▸ %{$reset_color%}"
 # One-line prompt:
 RPROMPT="%{$fg[green]%}%D{%L:%M:%S%p} %m:%~%{$reset_color%}"
-PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}▸) %{$reset_color%}"
+PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}>) %{$reset_color%}"
 
 # Backward search, like bash.
 bindkey '^R' history-incremental-search-backward
