@@ -31,6 +31,7 @@ Bundle 'vcscommand.vim'
 Bundle 'Zenburn'
 Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'godlygeek/tabular'
+Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'tpope/vim-endwise'
 filetype plugin indent on
@@ -94,6 +95,9 @@ let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '^\.DS_Store$']
 call yankstack#setup()
 nmap <leader>p <Plug>yankstack_substitute_older_paste
 nmap <leader>P <Plug>yankstack_substitute_newer_paste
+
+" Rainbow parentheses.
+nmap <leader>R :RainbowParenthesesToggle<CR>
 
 " }}}
 " The basics. {{{
@@ -272,6 +276,8 @@ augroup END
 augroup ft_markdown
     au!
     autocmd FileType markdown setlocal wrap linebreak textwidth=0 showbreak=
+    autocmd FileType markdown setlocal makeprg=open\ -a\ Marked\ %
+    autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
 augroup END
 
 " LaTeX types.
@@ -310,6 +316,9 @@ augroup END
 augroup ft_python
     au!
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
+    au FileType python compiler pyunit
+    au FileType python setlocal makeprg=nosetests
+    au BufNewFile,BufRead */test_*.py setlocal makeprg=nosetests\ %
 augroup END
 
 " }}}
@@ -345,6 +354,9 @@ noremap gk k
 
 " Alternative to exit insert.
 inoremap jk <ESC>
+
+" Quicklist advance like search advance.
+nnoremap <leader>n :cnext<CR>
 
 " }}}
 " PEP-8 compliant indentation for Python docstrings. {{{
