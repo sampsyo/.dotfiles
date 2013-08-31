@@ -353,6 +353,9 @@ noremap gk k
 " Alternative to exit insert.
 inoremap jk <ESC>
 
+" Quicklist advance like search advance.
+nnoremap <leader>n :cnext<CR>
+
 " }}}
 " PEP-8 compliant indentation for Python docstrings. {{{
 " Based on:
