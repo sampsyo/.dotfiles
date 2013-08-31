@@ -358,6 +358,9 @@ inoremap jk <ESC>
 " Quicklist advance like search advance.
 nnoremap <leader>n :cnext<CR>
 
+" Don't need shift for ed commands.
+nnoremap ; :
+
 " }}}
 " PEP-8 compliant indentation for Python docstrings. {{{
 " Based on:
