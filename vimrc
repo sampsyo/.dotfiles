@@ -33,7 +33,6 @@ Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'juvenn/mustache.vim'
-Bundle 'tpope/vim-endwise'
 filetype plugin indent on
 
 " }}}
