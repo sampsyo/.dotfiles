@@ -23,5 +23,5 @@ cd ~/.vim/bundle
 [ -d vundle ] || git clone git://github.com/gmarik/vundle.git
 
 echo 'remember:'
-echo 'pip install hg-git'
-echo 'vim +BundleInstall +qall'
+echo '$ pip install flake8 hg-git'
+echo '$ vim +BundleInstall +qall'
