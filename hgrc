@@ -26,7 +26,7 @@ hgshelve=~/.rsrc/hgext/hgshelve.py
 hgext.imerge=!
 
 [pager]
-pager=less -eqR
+pager=less -qFRX
 
 [schemes]
 gh=git://github.com/
