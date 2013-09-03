@@ -34,8 +34,9 @@ Bundle 'godlygeek/tabular'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kien/ctrlp.vim'
-Bundle 'bling/vim-airline'
 Bundle 'mhinz/vim-signify'
+Bundle 'Lawrencium'
+Bundle 'bling/vim-airline'
 filetype plugin indent on
 
 " }}}
