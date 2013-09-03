@@ -33,6 +33,7 @@ Bundle 'maxbrunsfeld/vim-yankstack'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'juvenn/mustache.vim'
+Bundle 'kien/ctrlp.vim'
 filetype plugin indent on
 
 " }}}
@@ -97,6 +98,13 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 
 " Rainbow parentheses.
 nmap <leader>R :RainbowParenthesesToggle<CR>
+
+" CtrlP.
+nnoremap <leader>f :CtrlP<CR>
+nnoremap <leader>b :CtrlPBuffer<CR>
+
+" bufkill
+nnoremap <leader>x :BD<CR>
 
 " }}}
 " The basics. {{{
