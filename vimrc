@@ -34,6 +34,7 @@ Bundle 'godlygeek/tabular'
 Bundle 'kien/rainbow_parentheses.vim'
 Bundle 'juvenn/mustache.vim'
 Bundle 'kien/ctrlp.vim'
+Bundle 'bling/vim-airline'
 filetype plugin indent on
 
 " }}}
@@ -53,9 +54,6 @@ let vimpager_use_gvim = 1
 let g:LustyJugglerSuppressRubyWarning = 1
 
 " Syntastic config.
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
 let g:syntastic_check_on_open=1
 let g:syntastic_echo_current_error=1
 let g:syntastic_enable_balloons=1
@@ -103,8 +101,18 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
 
-" bufkill
+" bufkill.
 nnoremap <leader>x :BD<CR>
+
+" Airline.
+set laststatus=2  " Always show status line.
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+if has('gui_running')
+    let g:airline_theme='solarized'
+else
+    let g:airline_theme='tomorrow'
+end
 
 " }}}
 " The basics. {{{
@@ -293,7 +301,7 @@ let g:tex_flavor='latex'
 let g:tex_comment_nospell=1
 " LaTeX spelling rules.
 function! TeXSettings()
-    syn region texZone start="\\begin{lstlisting}" 
+    syn region texZone start="\\begin{lstlisting}"
         \ end="\\end{lstlisting}\|%stopzone\>" contains=@NoSpell
     syn region texZone start="\\texttt{"
         \ end="}\|%stopzone\>" contains=@NoSpell
@@ -425,5 +433,5 @@ function! s:ExecuteInShell(command) " {{{
     echo 'Shell command ' . command . ' executed.'
 endfunction " }}}
 command! -complete=shellcmd -nargs=+ Shell call s:ExecuteInShell(<q-args>)
-nnoremap <leader>! :Shell 
+nnoremap <leader>! :Shell
 " }}}
