@@ -116,6 +116,10 @@ else
     let g:airline_theme='tomorrow'
 end
 
+" Signify (hg/git diff in the gutter).
+let g:signify_disable_by_default = 1
+nnoremap <leader>d :SignifyToggle<CR>
+
 " }}}
 " The basics. {{{
 
