@@ -387,6 +387,11 @@ nnoremap <leader>n :cnext<CR>
 " Don't need shift for ed commands.
 nnoremap ; :
 
+" No shift for alternate buffer.
+" FIXME It would be great if :A always added to the buffer list in a way that
+" lusty-juggler could see.
+nnoremap <leader>a :A<CR>
+
 " }}}
 " PEP-8 compliant indentation for Python docstrings. {{{
 " Based on:
