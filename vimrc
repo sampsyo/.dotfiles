@@ -37,6 +37,7 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'mhinz/vim-signify'
 Bundle 'Lawrencium'
 Bundle 'bling/vim-airline'
+Bundle 'tpope/vim-abolish'
 filetype plugin indent on
 
 " }}}

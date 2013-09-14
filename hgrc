@@ -19,7 +19,6 @@ hgext.record=
 hgext.pager=
 hgext.purge=
 hgext.extdiff=
-hgext.largefiles=
 hggit=
 hgshelve=~/.rsrc/hgext/hgshelve.py
 # hgsubversion=
