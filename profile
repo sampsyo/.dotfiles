@@ -1,5 +1,5 @@
 # All the paths I wish I had.
-export PATH=/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:/usr/local/bin:/usr/local/sbin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/python:/usr/local/share/python3:/usr/local/share/pypy:$PATH
 export PATH=~/.rsrc/bin:$PATH
 export PATH=$PATH:~/.ec2/bin:~/.cabal/bin
 export PATH=$PATH:/usr/local/git/bin

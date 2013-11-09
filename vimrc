@@ -26,7 +26,6 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'ervandew/supertab'
 Bundle 'tpope/vim-surround'
 Bundle 'mitsuhiko/vim-python-combined'
-Bundle 'TeX-PDF'
 Bundle 'vcscommand.vim'
 Bundle 'Zenburn'
 Bundle 'maxbrunsfeld/vim-yankstack'
@@ -42,13 +41,6 @@ filetype plugin indent on
 
 " }}}
 " Plugins. {{{
-
-" TeX-PDF plugin: get rid of extra beep-causing escape in mappings.
-let g:tex_pdf_map_keys = 0
-autocmd FileType tex noremap <buffer> <silent> <Leader>m :BuildTexPdf<CR>
-autocmd FileType tex noremap <buffer> <silent> <Leader>r :BuildAndViewTexPdf<CR>
-" Skim line sync.
-autocmd FileType tex noremap <buffer> <silent> <leader>s :silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf %<CR>
 
 " Vimpager.
 let vimpager_use_gvim = 1
@@ -309,6 +301,7 @@ augroup END
 
 " LaTeX types.
 " (Leads to *much* better syntax highlighting and spell-checking.)
+" (Also keybindings for `make` and `make view`.
 let g:tex_flavor='latex'
 let g:tex_comment_nospell=1
 " LaTeX spelling rules.
@@ -327,10 +320,20 @@ endfunction
 augroup ft_tex
     au!
     autocmd FileType tex :call TeXSettings()
+
     " Word count.
     autocmd FileType tex nnoremap <leader>w :w !detex \| wc -w<CR>
     autocmd FileType tex vnoremap <leader>w :w !detex \| wc -w<CR>
+
+    " Make.
+    autocmd FileType tex noremap <Leader>m :silent make\|redraw!\|cc<CR>
+    autocmd FileType tex noremap <Leader>r :silent make view\|redraw!\|cc<CR>
+    autocmd FileType tex set errorformat=%f:%l:\ %m
+
+    " Skim line sync.
+    autocmd FileType tex noremap <buffer> <silent> <leader>s :silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf %<CR>"
 augroup END
+
 
 " Building Java with ant.
 augroup ft_java
