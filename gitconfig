@@ -1,0 +1,11 @@
+[user]
+	name = Adrian Sampson
+	email = adrian@radbox.org
+
+[alias]
+    ci = commit -a
+    reverth = reset --hard
+[push]
+	default = simple
+[core]
+	excludesfile = ~/.gitignore
