@@ -1,0 +1,41 @@
+#!/usr/bin/env python3
+import requests
+import os
+
+FOLDER_ID = 17814561
+EXTENSIONS = ('mp4', 'm4v', 'avi', 'mkv')
+API_ROOT = 'https://api.put.io/v2'
+OAUTH_TOKEN = open(os.path.expanduser('~/.putio_token')).read().strip()
+
+def lsr(folder_id):
+    fresp = requests.get(
+    API_ROOT + '/files/list',
+    params={
+        'oauth_token': OAUTH_TOKEN,
+        'parent_id': str(folder_id),
+    },
+    )
+    for finfo in reversed(fresp.json()['files']):
+        # Recurse into folders.
+        if finfo['content_type'] == 'application/x-directory':
+            lsr(finfo['id'])
+            continue
+
+        # Extension filter.
+        _, ext = os.path.splitext(finfo['name'])
+        ext = ext[1:]
+        if ext not in EXTENSIONS:
+            continue
+
+        # Get URL.
+        dresp = requests.get(
+            API_ROOT + '/files/{}/download'.format(finfo['id']),
+            params={
+                'oauth_token': OAUTH_TOKEN,
+            },
+            allow_redirects = False,
+        )
+        print(dresp.headers['location'])
+
+if __name__ == '__main__':
+    lsr(FOLDER_ID)

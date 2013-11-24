@@ -7,13 +7,15 @@ API_ROOT = 'https://api.put.io/v2'
 OAUTH_TOKEN = open(os.path.expanduser('~/.putio_token')).read().strip()
 
 fresp = requests.get(
-    API_ROOT + '/files/list',
-    params={
-        'oauth_token': OAUTH_TOKEN,
-        'parent_id': str(FOLDER_ID),
-    },
+API_ROOT + '/files/list',
+params={
+    'oauth_token': OAUTH_TOKEN,
+    'parent_id': str(FOLDER_ID),
+},
 )
 for finfo in reversed(fresp.json()['files']):
+    if finfo['content_type'] == 'application/x-directory':
+        continue
     dresp = requests.get(
         API_ROOT + '/files/{}/download'.format(finfo['id']),
         params={
