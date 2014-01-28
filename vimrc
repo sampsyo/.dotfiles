@@ -326,6 +326,10 @@ augroup ft_tex
     autocmd FileType tex vnoremap <leader>w :w !detex \| wc -w<CR>
 
     " Make.
+    " TODO: I'd like makeprg to silent make's stderr (extra line output when a
+    " command fails), but 2>/dev/null doesn't do the trick since vim overrides
+    " it to capture that output.
+    autocmd FileType tex set makeprg=make\ -s\ QUIET=1
     autocmd FileType tex noremap <Leader>m :silent make\|redraw!\|cc<CR>
     autocmd FileType tex noremap <Leader>r :silent make view\|redraw!\|cc<CR>
     autocmd FileType tex set errorformat=%f:%l:\ %m
