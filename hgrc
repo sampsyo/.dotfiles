@@ -31,8 +31,10 @@ pager=less -qFRX
 gh=git://github.com/
 
 [extdiff]
-cmd.wdiff = cwdiff
-opts.wdiff = --diff --ab
+# Stolen from:
+# https://github.com/sorin-ionescu/dotfiles/blob/master/hgrc
+cmd.wdiff = sh
+opts.wdiff = -c 'diff --unified "$@" | wdiff --diff-input --avoid-wraps --start-delete="[38;5;1m" --end-delete="[00m" --start-insert="[38;5;2m" --end-insert="[00m" | sed "s/^\(@@\( [+-][[:digit:]]*,[[:digit:]]*\)\{2\} @@\)$/[38;5;6m\1[00m/g" | less -FRX' ''
 
 [diff]
 git=yes
