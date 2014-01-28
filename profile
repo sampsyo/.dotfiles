@@ -10,7 +10,7 @@ export EDITOR=vim
 export TEXINPUTS=$TEXINPUTS:~/Library/texmf
 export PINDIR=~/pin
 export PYTHONSTARTUP=~/.pystartup
-export MACOSX_DEPLOYMENT_TARGET=10.8  # Fix setuptools issues.
+# export MACOSX_DEPLOYMENT_TARGET=10.9  # Fix setuptools issues.
 export JSR308=~/uw/jsr308
 
 export LUA_PATH="./?/init.lua;;"
