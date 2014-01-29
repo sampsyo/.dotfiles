@@ -229,11 +229,9 @@ set smartcase
 set hlsearch
 " Clear search highlight with \ .
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-" When jumping to a match, place it in the middle of the screen.
-nnoremap n nzzzv
-nnoremap N Nzzzv
 " Stay here on star.
-nnoremap * *<c-o>
+" https://twitter.com/dotvimrc/status/428208518487764992
+nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 " Quickfix window for current search.
 nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " }}}
