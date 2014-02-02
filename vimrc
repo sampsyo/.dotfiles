@@ -236,14 +236,24 @@ nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(st
 nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " }}}
 " Line Return {{{
-" Returns to the line you were on before when reopening a file.
+" Return to the line you were on before when reopening a file, but not in
+" git commit messages.
+
+function CursorReturn()
+    if &filetype == "gitcommit"
+        call setpos('.', [0, 1, 1, 0])
+    else
+        if line("'\"") > 0 && line("'\"") <= line("$") |
+            execute 'normal! g`"zvzz' |
+        endif
+    endif
+endfunction
+
 augroup line_return
     au!
-    au BufReadPost *
-        \ if line("'\"") > 0 && line("'\"") <= line("$") |
-        \     execute 'normal! g`"zvzz' |
-        \ endif
+    au BufReadPost * call CursorReturn()
 augroup END
+
 " }}}
 " Project-specific style overrides. {{{
 autocmd BufNewFile,BufRead */llvm/* setlocal sw=2 ts=2 sts=2
