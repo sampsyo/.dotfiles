@@ -353,6 +353,12 @@ augroup ft_python
     au BufNewFile,BufRead */test_*.py setlocal makeprg=nosetests\ %
 augroup END
 
+" Go
+augroup ft_go
+    autocmd FileType go setlocal noexpandtab sw=4 ts=4 softtabstop=4
+    autocmd FileType go autocmd BufWritePre <buffer> Fmt
+augroup END
+
 " }}}
 " Shortcuts/bindings. {{{
 

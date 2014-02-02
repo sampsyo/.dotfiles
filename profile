@@ -13,6 +13,11 @@ export PYTHONSTARTUP=~/.pystartup
 # export MACOSX_DEPLOYMENT_TARGET=10.9  # Fix setuptools issues.
 export JSR308=~/uw/jsr308
 
+if which go >/dev/null 2>&1 ; then
+    export GOPATH=$HOME/.go
+    export PATH=$PATH:`go env GOROOT`/bin
+fi
+
 export LUA_PATH="./?/init.lua;;"
 export LUA_INIT="require 'luarocks.require'"
 
