@@ -3,11 +3,15 @@
 	email = adrian@radbox.org
 
 [alias]
-    ci = commit -a
+    ci = commit --all --verbose
     reverth = reset --hard
+    slog = log --oneline --decorate
+    st = status --short --branch
 [push]
 	default = simple
 [core]
 	excludesfile = ~/.gitignore
 [color]
 	ui = true
+[help]
+	autocorrect = 1
