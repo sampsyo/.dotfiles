@@ -104,3 +104,7 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 # Run additional profile chunks.
 [ -f $HOME/.dotfiles_extra/profile.sh ] && . $HOME/.dotfiles_extra/profile.sh
 [ -f $HOME/.profile_local ] && . $HOME/.profile_local
+
+# wdiff with colors.
+alias wdiffc="wdiff -w $'\033[30;41m' -x $'\033[0m' \
+    -y $'\033[30;42m' -z $'\033[0m'"
