@@ -15,7 +15,7 @@ export JSR308=~/uw/jsr308
 
 if which go >/dev/null 2>&1 ; then
     export GOPATH=$HOME/.go
-    export PATH=$PATH:`go env GOROOT`/bin
+    export PATH=$PATH:`go env GOROOT`/bin:$GOPATH/bin
 fi
 
 export LUA_PATH="./?/init.lua;;"
