@@ -221,6 +221,10 @@ augroup END
 " Highlight VCS conflict markers.
 match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 
+" Treat buffers from stdin (e.g.: echo foo | vim -) as scratch buffers.
+" https://twitter.com/dotvimrc/status/434395900748648448
+au StdinReadPost * :set buftype=nofile
+
 " }}}
 " Searching. {{{
 set incsearch
