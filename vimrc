@@ -37,6 +37,7 @@ Bundle 'mhinz/vim-signify'
 Bundle 'Lawrencium'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-abolish'
+Bundle 'groenewege/vim-less'
 filetype plugin indent on
 
 " }}}
