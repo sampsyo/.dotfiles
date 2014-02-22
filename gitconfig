@@ -3,10 +3,16 @@
 	email = adrian@radbox.org
 
 [alias]
-    ci = commit --all --verbose
     reverth = reset --hard
     slog = log --oneline --decorate
     st = status --short --branch
+    civ = commit --verbose
+    
+    # Make commit work like Mercurial (and like `git status`, `git diff`,
+    # ...). With no arguments, commit everything; with arguments, commit those
+    # files.
+    ci = "!sh -c 'if [ -z \"$1\" ]; then git civ -a; else git civ $@; fi'" -
+
 [push]
 	default = simple
 [core]
