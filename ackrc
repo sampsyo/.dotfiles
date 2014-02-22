@@ -1,4 +1,5 @@
 --type-set=rest=.rst
+--type-set=markdown=.md,.mkd,.markdown
 --ignore-dir=_etc
 --ignore-dir=build
 --ignore-dir=.tox
