@@ -13,7 +13,7 @@ ENV LC_ALL en_US.UTF-8
 
 # Some useful stuff.
 RUN apt-get install -y tmux zsh vim-nox ack-grep python-pip mercurial git
-RUN apt-get install -y ruby clang tcpflow dnsutils
+RUN apt-get install -y ruby-dev clang tcpflow dnsutils python-dev
 
 # Set up a user who can sudo without a password.
 RUN echo "asampson ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
@@ -36,4 +36,4 @@ RUN vim -E -s -u ~/.vimrc +BundleInstall! +qall ; true
 
 # Python and Ruby stuff.
 RUN pip install --user hg-git flake8
-RUN gem install gist
+RUN gem install --user-install gist

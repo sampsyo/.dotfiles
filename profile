@@ -13,9 +13,15 @@ export PYTHONSTARTUP=~/.pystartup
 # export MACOSX_DEPLOYMENT_TARGET=10.9  # Fix setuptools issues.
 export JSR308=~/uw/jsr308
 
+# Go path.
 if which go >/dev/null 2>&1 ; then
     export GOPATH=$HOME/.go
     export PATH=$PATH:`go env GOROOT`/bin:$GOPATH/bin
+fi
+
+# Ruby gem path.
+if which ruby >/dev/null && which gem >/dev/null; then
+    PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
 export LUA_PATH="./?/init.lua;;"
