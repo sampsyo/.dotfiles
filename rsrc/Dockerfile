@@ -11,10 +11,6 @@ RUN locale-gen en_US.UTF-8
 RUN dpkg-reconfigure locales
 ENV LC_ALL en_US.UTF-8
 
-# Some useful stuff.
-RUN apt-get install -y tmux zsh vim-nox ack-grep python-pip mercurial git
-RUN apt-get install -y ruby-dev clang tcpflow dnsutils python-dev
-
 # Set up a user who can sudo without a password.
 RUN echo "asampson ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
 RUN adduser --disabled-password --shell /bin/zsh --gecos "" asampson
@@ -26,6 +22,10 @@ WORKDIR /home/asampson
 CMD /bin/zsh
 ENV TERM xterm-256color
 
+# Initial dependencies; enough to get dotfiles set up.
+RUN sudo apt-get install -y zsh vim-nox python-pip git
+RUN sudo pip install mercurial
+
 # Install my dotfiles.
 RUN hg clone https://bitbucket.org/adrian/.dotfiles
 RUN cd .dotfiles ; ./rsrc/install.sh
@@ -33,6 +33,10 @@ RUN cd .dotfiles ; ./rsrc/install.sh
 RUN zsh -c 'source ~/.zshrc'
 # And the same with Vundle.
 RUN vim -E -s -u ~/.vimrc +BundleInstall! +qall ; true
+
+# More useful packages from Ubuntu.
+RUN sudo apt-get install -y tmux ack-grep ruby-dev clang tcpflow
+RUN sudo apt-get install -y dnsutils python-dev curl file
 
 # Python and Ruby stuff.
 RUN pip install --user hg-git flake8
