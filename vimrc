@@ -38,6 +38,7 @@ Bundle 'Lawrencium'
 Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-abolish'
 Bundle 'groenewege/vim-less'
+Bundle 'tpope/vim-sensible'
 filetype plugin indent on
 
 " }}}
@@ -68,24 +69,6 @@ let g:syntastic_c_compiler = 'clang'
 " netrw
 let g:netrw_silent = 1 " avoid irritating prompt on :w
 let g:netrw_keepdir = 0
-
-" Gvim window expansion for NERDTree.
-let s:_NTopen = 0
-function NTexptoggle()
-    if s:_NTopen == 1
-        NERDTreeClose
-        if has("gui_running")
-            let &columns = &columns - g:NERDTreeWinSize - 1
-        endif
-        let s:_NTopen = 0
-    else
-        NERDTree
-        if has("gui_running")
-            let &columns = &columns + g:NERDTreeWinSize + 1
-        endif
-        let s:_NTopen = 1
-    end
-endfunction
 
 " NERDTree ignored files.
 let NERDTreeIgnore=['\~$', '\.pyc$', '\.pyo$', '^\.DS_Store$']
@@ -123,7 +106,6 @@ nnoremap <leader>d :SignifyToggle<CR>
 " The basics. {{{
 
 " Syntax highlighting and colors.
-syntax on
 set background=light
 set cursorline
 let g:solarized_contrast="high"    "default value is normal
@@ -134,13 +116,10 @@ else
 end
 
 " Basic behavior.
-set backspace=indent,eol,start
 set gcr=n:blinkon0 " no blinking
 set encoding=utf-8
-set showcmd
 set showmode
 set lazyredraw
-set history=1000
 set hidden
 
 " Splits in the expected place.
@@ -153,8 +132,6 @@ set shiftwidth=4
 set tabstop=4
 set softtabstop=4
 set expandtab
-set autoindent
-set shiftround
 
 " Emacs-style wrap visibility.
 set showbreak=↪
@@ -165,9 +142,6 @@ inoremap <F1> <ESC>:set invfullscreen<CR>a
 
 " Mouse.
 set mouse=a
-
-" Info display at the bottom.
-set ruler
 
 " Terminal title.
 set title
@@ -194,7 +168,6 @@ au VimResized * exe "normal! \<c-w>="
 let g:SuperTabDefaultCompletionType = "context"
 
 " Wildmenu: exploring files (incl. with Lusty).
-set wildmenu
 set wildmode=list:longest
 set wildignore+=*.o,*.aux,*.bbl,*.blg,*.log
 set wildignore+=*.pyc,*.pyo,*.luac
