@@ -4,7 +4,7 @@
 
 [alias]
     reverth = reset --hard
-    slog = log --oneline --decorate
+    slog = log --oneline --decorate --graph
     st = status --short --branch
     civ = commit --verbose
     
