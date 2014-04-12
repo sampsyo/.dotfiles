@@ -61,7 +61,7 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
 " Noisy PEP8 stuff.
-let g:syntastic_python_flake8_args="--ignore=E221,E302,E127,E241,E303,E261,E701,E231,E301,E126,E121,E272,E222,E128"
+let g:syntastic_python_flake8_args="--ignore=E221,E302,E127,E241,E303,E261,E701,E231,E301,E126,E121,E272,E222,E128 --exclude=''"
 " Use Clang.
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_c_compiler = 'clang'
