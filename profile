@@ -5,6 +5,8 @@ export PATH=$PATH:~/.ec2/bin:~/.cabal/bin
 export PATH=$PATH:/usr/local/git/bin
 export PATH=$PATH:/usr/bin/vendor_perl
 export PATH=$PATH:/usr/texbin
+export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
+export PATH=$PATH:$HOME/.local/bin
 
 export EDITOR=vim
 export TEXINPUTS=$TEXINPUTS:~/Library/texmf
