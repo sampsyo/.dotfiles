@@ -21,3 +21,6 @@
 	ui = true
 [help]
 	autocorrect = 1
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f

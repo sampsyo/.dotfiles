@@ -12,6 +12,7 @@ export PINDIR=~/pin
 export PYTHONSTARTUP=~/.pystartup
 # export MACOSX_DEPLOYMENT_TARGET=10.9  # Fix setuptools issues.
 export JSR308=~/uw/jsr308
+export CHECKERFRAMEWORK=~/uw/checker-framework
 
 # Go path.
 if which go >/dev/null 2>&1 ; then
