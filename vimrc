@@ -39,6 +39,7 @@ Bundle 'bling/vim-airline'
 Bundle 'tpope/vim-abolish'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-sensible'
+Bundle 'JuliaLang/julia-vim'
 filetype plugin indent on
 
 " }}}
@@ -61,7 +62,8 @@ let g:syntastic_error_symbol='✗'
 let g:syntastic_warning_symbol='⚠'
 let g:syntastic_always_populate_loc_list=1
 " Noisy PEP8 stuff.
-let g:syntastic_python_flake8_args="--ignore=E221,E302,E127,E241,E303,E261,E701,E231,E301,E126,E121,E272,E222,E128 --exclude=''"
+" E241 multiple spaces after , (useful for alignment)
+let g:syntastic_python_flake8_args="--ignore=E241 --exclude=''"
 " Use Clang.
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_c_compiler = 'clang'
@@ -324,7 +326,6 @@ augroup ft_tex
     autocmd FileType tex noremap <buffer> <silent> <leader>s :silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf %<CR>"
 augroup END
 
-
 " Building Java with ant.
 augroup ft_java
     au!
@@ -345,6 +346,12 @@ augroup END
 augroup ft_go
     autocmd FileType go setlocal noexpandtab sw=4 ts=4 softtabstop=4
     autocmd FileType go autocmd BufWritePre <buffer> Fmt
+augroup END
+
+" Julia
+augroup ft_julia
+    au!
+    autocmd FileType julia setlocal sw=2 ts=2 softtabstop=2
 augroup END
 
 " }}}
