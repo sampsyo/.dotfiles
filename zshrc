@@ -6,6 +6,7 @@ antigen bundle pip
 antigen bundle osx
 antigen bundle svn
 antigen bundle vi-mode
+antigen bundle terminalapp
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
