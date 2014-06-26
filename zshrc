@@ -63,3 +63,8 @@ zstyle ':completion:*:*:*:*:*files' ignored-patterns \
 zstyle ':completion:*:*:(mvim|vim):*:*files' ignored-patterns \
     '*.aux' '*.bbl' '*.blg' '*.synctex.gz' '*.toc' \
     '*.log' '*.pdf' 'revision.tex'
+
+# Do not correct mv and cp arguments (since I often create files close to
+# existing filenames).
+alias mv='nocorrect mv'
+alias cp='nocorrect cp'
