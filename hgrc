@@ -20,15 +20,11 @@ hgext.pager=
 hgext.purge=
 hgext.extdiff=
 hgext.shelve=
-hggit=
 # hgsubversion=
 hgext.imerge=!
 
 [pager]
 pager=less -qFRX
-
-[schemes]
-gh=git://github.com/
 
 [extdiff]
 # Stolen from:
