@@ -354,6 +354,11 @@ augroup ft_julia
     autocmd FileType julia setlocal sw=2 ts=2 softtabstop=2
 augroup END
 
+" LLVM assembly
+augroup ft_llvm
+  au! BufRead,BufNewFile *.ll set filetype=llvm
+augroup END
+
 " }}}
 " Shortcuts/bindings. {{{
 
