@@ -117,3 +117,10 @@ alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/
 # wdiff with colors.
 alias wdiffc="wdiff -w $'\033[30;41m' -x $'\033[0m' \
     -y $'\033[30;42m' -z $'\033[0m'"
+
+# autossh. And AutoSshTmux sweet-spot combo.
+export AUTOSSH_PORT=9017
+function ast()
+{
+    autossh $1 -t -- tmux -u attach
+}
