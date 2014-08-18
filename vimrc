@@ -40,6 +40,7 @@ Bundle 'tpope/vim-abolish'
 Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-sensible'
 Bundle 'JuliaLang/julia-vim'
+Bundle 'ntpeters/vim-better-whitespace'
 filetype plugin indent on
 
 " }}}
@@ -317,10 +318,10 @@ augroup ft_tex
     " TODO: I'd like makeprg to silent make's stderr (extra line output when a
     " command fails), but 2>/dev/null doesn't do the trick since vim overrides
     " it to capture that output.
-    autocmd FileType tex set makeprg=make\ -s\ QUIET=1
+    autocmd FileType tex setlocal makeprg=make\ -s\ QUIET=1
     autocmd FileType tex noremap <Leader>m :silent make\|redraw!\|cc<CR>
     autocmd FileType tex noremap <Leader>r :silent make view\|redraw!\|cc<CR>
-    autocmd FileType tex set errorformat=%f:%l:\ %m
+    autocmd FileType tex setlocal errorformat=%f:%l:\ %m
 
     " Skim line sync.
     autocmd FileType tex noremap <buffer> <silent> <leader>s :silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf %<CR>"
@@ -329,8 +330,8 @@ augroup END
 " Building Java with ant.
 augroup ft_java
     au!
-    autocmd FileType java set efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
-    autocmd FileType java set makeprg=ant
+    autocmd FileType java setlocal efm=%A\ %#[javac]\ %f:%l:\ %m,%-Z\ %#[javac]\ %p^,%-C%.%#
+    autocmd FileType java setlocal makeprg=ant
 augroup END
 
 " Python

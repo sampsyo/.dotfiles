@@ -120,6 +120,7 @@ alias wdiffc="wdiff -w $'\033[30;41m' -x $'\033[0m' \
 
 # autossh. And AutoSshTmux sweet-spot combo.
 export AUTOSSH_PORT=9017
+export AUTOSSH_POLL=30
 function ast()
 {
     autossh $1 -t -- tmux -u attach

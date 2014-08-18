@@ -1,10 +1,6 @@
 # Load antigen (zsh plugin/bundle manager).
 source $HOME/.rsrc/antigen.zsh
 antigen use oh-my-zsh
-antigen bundle git
-antigen bundle pip
-antigen bundle osx
-antigen bundle svn
 antigen bundle vi-mode
 antigen bundle terminalapp
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -68,3 +64,7 @@ zstyle ':completion:*:*:(mvim|vim):*:*files' ignored-patterns \
 # existing filenames).
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
+
+# beets completion.
+fpath=(~/code/beets/extra $fpath)
+compinit
