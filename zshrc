@@ -64,3 +64,12 @@ zstyle ':completion:*:*:(mvim|vim):*:*files' ignored-patterns \
 # existing filenames).
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
+
+# Color `ls` output.
+if ls --color -d . &>/dev/null 2>&1 ; then
+    # GNU
+    alias ls='ls --color=tty'
+else
+    # BSD
+    alias ls='ls -G'
+fi
