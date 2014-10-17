@@ -1,6 +1,5 @@
 # Load antigen (zsh plugin/bundle manager).
 source $HOME/.rsrc/antigen.zsh
-antigen use oh-my-zsh
 antigen bundle vi-mode
 antigen bundle terminalapp
 antigen bundle zsh-users/zsh-syntax-highlighting
@@ -12,6 +11,7 @@ antigen apply
 # PROMPT="%{$fg[green]%}%T %{$fg[green]%}%m %{$fg[green]%}%~
 # %{$fg[green]%}▸ %{$reset_color%}"
 # One-line prompt:
+autoload -U colors && colors
 RPROMPT="%{$fg[green]%}%D{%L:%M:%S%p} %m:%~%{$reset_color%}"
 PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
 
@@ -64,7 +64,3 @@ zstyle ':completion:*:*:(mvim|vim):*:*files' ignored-patterns \
 # existing filenames).
 alias mv='nocorrect mv'
 alias cp='nocorrect cp'
-
-# beets completion.
-fpath=(~/code/beets/extra $fpath)
-compinit

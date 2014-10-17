@@ -18,7 +18,7 @@ export CHECKERFRAMEWORK=~/uw/checker-framework
 
 # Go path.
 if which go >/dev/null 2>&1 ; then
-    export GOPATH=$HOME/.go
+    export GOPATH=$HOME/code/go
     export PATH=$PATH:`go env GOROOT`/bin:$GOPATH/bin
 fi
 
