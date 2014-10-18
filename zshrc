@@ -61,11 +61,11 @@ bindkey -M vicmd 'j' history-substring-search-down
 autoload -U compinit
 compinit -i
 # Nicer completion interface.
-setopt menu_complete
 zstyle ':completion:*' list-colors ''
-zstyle ':completion:*:*:*:*:*' menu select
+zstyle ':completion:*' menu select
 setopt complete_in_word
 setopt always_to_end
+unsetopt list_ambiguous  # Show menu immediately when ambiguous.
 # Case-insensitive partial word and substring completion.
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
 zstyle ':completion:*' completer _expand _complete _approximate _ignored
