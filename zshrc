@@ -58,6 +58,17 @@ bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
 # Completion stuff.
+autoload -U compinit
+compinit -i
+# Nicer completion interface.
+setopt menu_complete
+zstyle ':completion:*' list-colors ''
+zstyle ':completion:*:*:*:*:*' menu select
+setopt complete_in_word
+setopt always_to_end
+# Case-insensitive partial word and substring completion.
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=** r:|=**' 'l:|=* r:|=*'
+zstyle ':completion:*' completer _expand _complete _approximate _ignored
 # LaTeX junk files that nobody ever needs to see:
 zstyle ':completion:*:*:*:*:*files' ignored-patterns \
     '*.aux' '*.bbl' '*.blg' '*.synctex.gz' '*.toc'
@@ -66,6 +77,9 @@ zstyle ':completion:*:*:*:*:*files' ignored-patterns \
 zstyle ':completion:*:*:(mvim|vim):*:*files' ignored-patterns \
     '*.aux' '*.bbl' '*.blg' '*.synctex.gz' '*.toc' \
     '*.log' '*.pdf' 'revision.tex'
+# `kill` completion.
+zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
+zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 
 # Do not correct mv and cp arguments (since I often create files close to
 # existing filenames).
@@ -80,16 +94,6 @@ else
     # BSD
     alias ls='ls -G'
 fi
-
-# Nicer completion interface.
-zstyle ':completion:*' list-colors ''
-zstyle ':completion:*:*:*:*:*' menu select
-setopt complete_in_word
-setopt always_to_end
-
-# `kill` completion.
-zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
-zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
 
 # Terminal.app cwd restore.
 if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
