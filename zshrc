@@ -84,6 +84,8 @@ fi
 # Nicer completion interface.
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*:*:*:*:*' menu select
+setopt complete_in_word
+setopt always_to_end
 
 # `kill` completion.
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
@@ -98,3 +100,11 @@ if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
     add-zsh-hook precmd terminal_update
     terminal_update
 fi
+
+# Directory navigation.
+setopt auto_pushd
+setopt pushd_ignore_dups
+setopt auto_cd
+
+# Typos.
+alias sl=ls
