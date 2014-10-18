@@ -26,8 +26,17 @@ bindkey '^E' end-of-line
 # Failed wildcard matches should get passed through.
 unsetopt nomatch
 
-# Disable fucking bullshit history sharing. It's the worst, seriously.
+# Persistent command history.
+export HISTFILE=$HOME/.zsh_history
+HISTSIZE=10000
+SAVEHIST=10000
+setopt inc_append_history
+setopt hist_ignore_dups
+# Do *not* immediately pick up new commands from other concurrent shells,
+# which can be super annoying.
 unsetopt share_history
+# Record the time of each command, which can be useful during forensics.
+setopt extended_history
 
 # Look on the FS every time for commands (avoid rehash).
 unsetopt hash_cmds
