@@ -1,9 +1,7 @@
-# Load antigen (zsh plugin/bundle manager).
-source $HOME/.rsrc/antigen.zsh
-antigen bundle zsh-users/zsh-syntax-highlighting
-antigen bundle zsh-users/zsh-completions
-antigen bundle zsh-users/zsh-history-substring-search
-antigen apply
+# Plugins.
+fpath=(~/.rsrc/zsh/zsh-completions/src $fpath)
+source ~/.rsrc/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source ~/.rsrc/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 
 # Two-line prompt:
 # PROMPT="%{$fg[green]%}%T %{$fg[green]%}%m %{$fg[green]%}%~
