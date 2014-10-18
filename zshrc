@@ -1,7 +1,5 @@
 # Load antigen (zsh plugin/bundle manager).
 source $HOME/.rsrc/antigen.zsh
-antigen bundle vi-mode
-antigen bundle terminalapp
 antigen bundle zsh-users/zsh-syntax-highlighting
 antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-history-substring-search
@@ -18,12 +16,14 @@ PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
 # Backward search, like bash.
 bindkey '^R' history-incremental-search-backward
 
+# vi mode.
+bindkey -v
+# Like modern vim, delete stuff even when I didn't just insert it.
+bindkey -M viins '^?' backward-delete-char
+
 # Just a few emacs bindings even though I'm using vi.
 bindkey '^A' beginning-of-line
 bindkey '^E' end-of-line
-
-# Like modern vim, delete stuff even when I didn't just insert it.
-bindkey -M viins '^?' backward-delete-char
 
 # Failed wildcard matches should get passed through.
 unsetopt nomatch
@@ -81,3 +81,13 @@ zstyle ':completion:*:*:*:*:*' menu select
 # `kill` completion.
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
+
+# Terminal.app cwd restore.
+if [[ "$TERM_PROGRAM" == "Apple_Terminal" ]]; then
+    terminal_update() {
+        printf '\e]7;%s\a' "file://$HOST${PWD// /%20}"
+    }
+    autoload add-zsh-hook
+    add-zsh-hook precmd terminal_update
+    terminal_update
+fi
