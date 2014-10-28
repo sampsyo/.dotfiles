@@ -41,6 +41,7 @@ Bundle 'groenewege/vim-less'
 Bundle 'tpope/vim-sensible'
 Bundle 'JuliaLang/julia-vim'
 Bundle 'ntpeters/vim-better-whitespace'
+Bundle 'c0r73x/vimdir.vim'
 filetype plugin indent on
 
 " }}}
