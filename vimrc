@@ -361,6 +361,21 @@ augroup ft_llvm
   au! BufRead,BufNewFile *.ll set filetype=llvm
 augroup END
 
+" reStructuredText (really, Sphinx)
+function! OpenSphinxPage()
+  let sphinxbase = fnamemodify(findfile("conf.py", ".;"), ':h:p')
+  let sphinxbase = fnamemodify(sphinxbase, ':p')
+  let curfile = expand('%:p')
+  let suffix = curfile[len(sphinxbase):]
+  let htmlfile = sphinxbase . '_build/html/' .
+        \ substitute(suffix, "\.rst$", ".html", "")
+  call netrw#NetrwBrowseX(htmlfile, 0)
+endfunction
+augroup ft_rst
+  au!
+  autocmd FileType rst noremap <Leader>r :call OpenSphinxPage()<CR>
+augroup END
+
 " }}}
 " Shortcuts/bindings. {{{
 
