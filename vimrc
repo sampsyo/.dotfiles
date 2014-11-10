@@ -28,6 +28,8 @@ Plug 'tpope/vim-sensible'
 Plug 'JuliaLang/julia-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'c0r73x/vimdir.vim'
+Plug 'junegunn/vim-pseudocl'
+Plug 'junegunn/vim-oblique'
 call plug#end()
 
 " }}}
@@ -91,6 +93,9 @@ end
 " Signify (hg/git diff in the gutter).
 let g:signify_disable_by_default = 1
 nnoremap <leader>d :SignifyToggle<CR>
+
+" Oblique.
+let g:oblique#incsearch_highlight_all=1
 
 " }}}
 " The basics. {{{
@@ -197,9 +202,6 @@ set smartcase
 set hlsearch
 " Clear search highlight with \ .
 noremap <leader><space> :noh<cr>:call clearmatches()<cr>
-" Stay here on star.
-" https://twitter.com/dotvimrc/status/428208518487764992
-nnoremap <silent> * :let stay_star_view = winsaveview()<cr>*:call winrestview(stay_star_view)<cr>
 " Quickfix window for current search.
 nnoremap <silent> <leader>/ :execute 'vimgrep /'.@/.'/g %'<CR>:copen<CR>
 " }}}
