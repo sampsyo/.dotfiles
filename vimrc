@@ -30,6 +30,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'c0r73x/vimdir.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
+Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 call plug#end()
 
 " }}}
@@ -193,6 +194,9 @@ match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 " Treat buffers from stdin (e.g.: echo foo | vim -) as scratch buffers.
 " https://twitter.com/dotvimrc/status/434395900748648448
 au StdinReadPost * :set buftype=nofile
+
+" Dash.
+nnoremap <leader>d :Dash<CR>
 
 " }}}
 " Searching. {{{
