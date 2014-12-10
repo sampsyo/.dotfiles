@@ -31,6 +31,7 @@ Plug 'c0r73x/vimdir.vim'
 Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
+Plug 'wting/rust.vim', { 'for': 'rust' }
 call plug#end()
 
 " }}}
