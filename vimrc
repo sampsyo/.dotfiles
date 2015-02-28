@@ -417,6 +417,15 @@ command W w
 " lusty-juggler could see.
 nnoremap <leader>a :A<CR>
 
+" Look up a line on GitHub.
+" https://gist.github.com/callahanrts/9274ad952b3e79cccc44
+function! ShowOnGithub()
+  let u = system("echo ${${${$(git --git-dir=.git config --get remote.origin.url)#git@github.com:}%.git}#https://github.com/} | xargs echo -n")
+  silent exec "!open "."https://github.com/".u."/blob/master/".@%.'\#L'.line(".")
+endfunction
+command! -nargs=0 ShowOnGithub call ShowOnGithub()
+nnoremap <Leader>gh :ShowOnGithub<CR>
+
 " }}}
 " PEP-8 compliant indentation for Python docstrings. {{{
 " Based on:
