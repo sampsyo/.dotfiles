@@ -32,6 +32,8 @@ Plug 'junegunn/vim-pseudocl'
 Plug 'junegunn/vim-oblique'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
+" Plug 'gilligan/vim-lldb', { 'for': ['c', 'cpp'] }
+Plug 'cespare/vim-toml', { 'for': 'toml' }
 call plug#end()
 
 " }}}

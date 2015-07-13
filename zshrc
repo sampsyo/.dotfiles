@@ -76,7 +76,7 @@ zstyle ':completion:*:*:*:*:*files' ignored-patterns \
 # pdflatex-makefile) when attempting to edit text files:
 zstyle ':completion:*:*:(mvim|vim|gvim):*:*files' ignored-patterns \
     '*.aux' '*.bbl' '*.blg' '*.synctex.gz' '*.toc' \
-    '*.log' '*.pdf' '*.out' 'revision.tex'
+    '*.log' '*.pdf' '*.out' 'revision.tex' '*.thm'
 # `kill` completion.
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
