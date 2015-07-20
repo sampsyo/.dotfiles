@@ -1,0 +1,5 @@
+#!/bin/sh
+repopath=`pwd`
+reponame=`basename $repopath`
+revision=`git rev-parse --short HEAD`
+git archive --prefix=$reponame/ -o $reponame-$revision.tar.gz HEAD
