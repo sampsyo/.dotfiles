@@ -28,13 +28,12 @@ Plug 'tpope/vim-sensible'
 Plug 'JuliaLang/julia-vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'c0r73x/vimdir.vim'
-Plug 'junegunn/vim-pseudocl'
-Plug 'junegunn/vim-oblique'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
 " Plug 'gilligan/vim-lldb', { 'for': ['c', 'cpp'] }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/vim-asterisk'
 call plug#end()
 
 " }}}
@@ -99,8 +98,14 @@ end
 let g:signify_disable_by_default = 1
 nnoremap <leader>d :SignifyToggle<CR>
 
-" Oblique.
-let g:oblique#incsearch_highlight_all=1
+" Asterisk.
+" Make "z" (stay) behavior the default.
+map *  <Plug>(asterisk-z*)
+map #  <Plug>(asterisk-z#)
+map g* <Plug>(asterisk-gz*)
+map g# <Plug>(asterisk-gz#)
+" Keep the cursor in the same relative position.
+let g:asterisk#keeppos = 1
 
 " }}}
 " The basics. {{{
