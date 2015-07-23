@@ -34,6 +34,7 @@ Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
 " Plug 'gilligan/vim-lldb', { 'for': ['c', 'cpp'] }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
+Plug 'haya14busa/incsearch.vim'
 call plug#end()
 
 " }}}
