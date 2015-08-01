@@ -12,7 +12,7 @@ Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'a.vim'
 Plug 'ack.vim', { 'on': 'Ack' }
-Plug 'bufkill.vim'
+Plug 'qpkorr/vim-bufkill'
 Plug 'camelcasemotion'
 Plug 'sjbach/lusty'
 Plug 'ervandew/supertab'
@@ -34,6 +34,7 @@ Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
+Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 call plug#end()
 
 " }}}
@@ -83,6 +84,7 @@ nnoremap <leader>b :CtrlPBuffer<CR>
 
 " bufkill.
 nnoremap <leader>x :BD<CR>
+let g:BufKillCreateMappings = 0
 
 " Airline.
 set laststatus=2  " Always show status line.
