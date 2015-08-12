@@ -35,6 +35,8 @@ Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
+Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 call plug#end()
 
 " }}}
