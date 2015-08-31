@@ -381,6 +381,12 @@ augroup ft_rst
   autocmd FileType rst noremap <Leader>r :call OpenSphinxPage()<CR>
 augroup END
 
+" TypeScript
+augroup ft_typescript
+    au!
+    autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+augroup END
+
 " }}}
 " Shortcuts/bindings. {{{
 

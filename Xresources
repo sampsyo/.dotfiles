@@ -2,6 +2,10 @@ URxvt*font: xft:Inconsolata:size=11
 URxvt*background: Black
 URxvt*foreground: White
 
+! Lie to appease many command-line tools.
+URxvt*termName: xterm-256color
+
+! Tango scheme.
 *color0:  #2E3436
 *color1:  #a40000
 *color2:  #4E9A06
