@@ -83,6 +83,13 @@ nmap <leader>R :RainbowParenthesesToggle<CR>
 " CtrlP.
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
+let g:ctrlp_user_command = {
+	\ 'types': {
+		\ 1: ['.git', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'],
+		\ 2: ['.hg', 'hg --cwd %s locate -I .'],
+		\ },
+	\ 'fallback': 'find %s -type f'
+	\ }
 
 " bufkill.
 nnoremap <leader>x :BD<CR>
