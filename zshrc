@@ -31,9 +31,12 @@ export HISTFILE=$HOME/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
 setopt inc_append_history
-setopt hist_ignore_dups
+# Do not display in-order duplicates when searching backward in time.
 # https://github.com/zsh-users/zsh-history-substring-search/issues/19
-setopt hist_find_no_dups
+setopt hist_ignore_dups
+# Currently broken:
+# https://github.com/zsh-users/zsh-history-substring-search/issues/46
+# setopt hist_find_no_dups
 # Do *not* immediately pick up new commands from other concurrent shells,
 # which can be super annoying.
 unsetopt share_history
