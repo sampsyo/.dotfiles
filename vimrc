@@ -37,6 +37,8 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
+Plug 'tpope/vim-fugitive'
+Plug 'justincampbell/vim-eighties'
 call plug#end()
 
 " }}}
@@ -177,9 +179,6 @@ set nojoinspaces
 set autowrite
 set autoread
 
-" Resize splits when the window is resized.
-au VimResized * exe "normal! \<c-w>="
-
 " Omnicompletion.
 let g:SuperTabDefaultCompletionType = "context"
 
@@ -217,6 +216,10 @@ au StdinReadPost * :set buftype=nofile
 
 " Dash.
 nnoremap <leader>d :Dash<CR>
+
+" When closing windows, don't resize too disruptively.
+" http://stackoverflow.com/q/486027
+set equalalways
 
 " }}}
 " Searching. {{{
