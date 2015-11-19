@@ -303,6 +303,9 @@ augroup ft_markdown
     autocmd FileType markdown setlocal wrap linebreak textwidth=0 showbreak=
     autocmd FileType markdown setlocal makeprg=open\ -a\ Marked\ %
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
+
+    " Math formulas in LaTeX.
+    autocmd FileType markdown syntax region Statement oneline matchgroup=Delimiter start="\$" end="\$"
 augroup END
 
 " LaTeX types.
