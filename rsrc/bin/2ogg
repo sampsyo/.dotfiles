@@ -1,0 +1,4 @@
+#!/bin/sh -x
+infn=$1
+outfn=$infn.ogg
+ffmpeg -i $infn -codec:a libvorbis -qscale:a 2 $outfn

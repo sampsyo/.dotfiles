@@ -1,0 +1,4 @@
+#!/bin/sh -x
+infn=$1
+outfn=$infn.mp3
+ffmpeg -i $infn -codec:a libmp3lame -qscale:a 8 $outfn
