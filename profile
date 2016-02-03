@@ -60,8 +60,12 @@ fi
 alias v="$GVIM --remote-silent"
 
 # A fancy utility for opening the *visible* vim in a window manager (or opening
-# a new one otherwise).
-function vv()
+# a new one otherwise). This requires the `wmctrl` utility, which interacts
+# with the WM to list windows and desktops. It uses a wrapper I wrote that
+# finds a visible vim window (if any).
+if which wmctrl >/dev/null 2>&1 ; then
+unalias v
+function v()
 {
     vimserver=`visible_vim.py`
     if [ ! -z "$vimserver" ] ; then
@@ -70,6 +74,7 @@ function vv()
         $GVIM $@
     fi
 }
+fi
 
 # Alias nose.
 if which nosetests-2.7 >/dev/null 2>&1 ; then
