@@ -59,6 +59,18 @@ else
 fi
 alias v="$GVIM --remote-silent"
 
+# A fancy utility for opening the *visible* vim in a window manager (or opening
+# a new one otherwise).
+function vv()
+{
+    vimserver=`visible_vim.py`
+    if [ ! -z "$vimserver" ] ; then
+        $GVIM --servername $vimserver --remote $@
+    else
+        $GVIM $@
+    fi
+}
+
 # Alias nose.
 if which nosetests-2.7 >/dev/null 2>&1 ; then
 alias nose=nosetests-2.7
