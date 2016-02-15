@@ -466,6 +466,10 @@ nnoremap <Leader>gh :ShowOnGithub<CR>
 " Switch to the last buffer *slightly* faster with \j.
 nnoremap <leader>j :b#<cr>
 
+" Use the most recent search for global replacement.
+" http://howivim.com/2016/damian-conway/
+nnoremap <expr> <leader>r  ':%s/' . @/ . '//g<LEFT><LEFT>'
+
 " }}}
 " PEP-8 compliant indentation for Python docstrings. {{{
 " Based on:
