@@ -261,6 +261,9 @@ autocmd BufNewFile,BufRead */passert-llvm/*.cpp,*/passert-llvm/*.h
     \ setlocal sw=2 ts=2 sts=2
 " }}}
 " Backups/swapfiles. {{{
+if isdirectory($HOME . '/.vim/tmp') == 0
+    :silent !mkdir -p ~/.vim/tmp > /dev/null 2>&1
+endif
 if exists('%undofile')
     set undofile " Persistent undo!
     set undoreload=10000
