@@ -22,7 +22,8 @@ Plug 'Zenburn'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'godlygeek/tabular'
 Plug 'juvenn/mustache.vim'
-Plug 'bling/vim-airline'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 Plug 'groenewege/vim-less'
 Plug 'tpope/vim-sensible'
 Plug 'JuliaLang/julia-vim'
@@ -67,6 +68,8 @@ let g:syntastic_python_flake8_args="--ignore=E241 --exclude=''"
 let g:syntastic_cpp_compiler = 'clang++'
 let g:syntastic_c_compiler = 'clang'
 let g:syntastic_typescript_tsc_args = "--noImplicitAny"
+" TypeScript: use tsconfig.json.
+let g:syntastic_typescript_tsc_fname = ''
 
 " netrw
 let g:netrw_silent = 1 " avoid irritating prompt on :w

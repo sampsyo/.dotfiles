@@ -129,3 +129,5 @@ deduplication
 shader
 bytecode
 rasterization
+programmability
+deterministically
