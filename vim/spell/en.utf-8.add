@@ -129,5 +129,9 @@ deduplication
 shader
 bytecode
 rasterization
+verifier
+customizability
+crowsourcing
+crowdsource
 programmability
 deterministically
