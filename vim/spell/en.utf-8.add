@@ -102,7 +102,6 @@ PDFs
 OSes
 HCI
 inlining
-Combinators
 combinators
 combinator
 destination
@@ -142,3 +141,14 @@ JIT
 interoperability
 specializable
 unspecialized
+desugars
+uncomputable
+unanalyzable
+SPOCK's
+approximatable
+LoC
+OpenTuner
+profiler
+approximatability
+anecdotally
+pluggable
