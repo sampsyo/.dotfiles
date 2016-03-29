@@ -141,6 +141,9 @@ JIT
 interoperability
 specializable
 unspecialized
+polymorphism
+lexically
+SVMs
 desugars
 uncomputable
 unanalyzable
