@@ -156,7 +156,7 @@ set softtabstop=4
 set expandtab
 
 " Emacs-style wrap visibility.
-set showbreak=↪
+set showbreak=~
 
 " Instead of annoyingly showing help, toggle fullscreen on help key.
 noremap  <F1> :set invfullscreen<CR>
