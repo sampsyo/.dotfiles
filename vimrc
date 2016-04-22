@@ -311,7 +311,7 @@ augroup ft_markdown
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
 
     " Math formulas in LaTeX.
-    autocmd FileType markdown syntax region Statement oneline matchgroup=Delimiter start="\$" end="\$"
+    autocmd FileType markdown syntax region Statement oneline matchgroup=Delimiter start="\$" skip="\\\$" end="\$"
 augroup END
 
 " LaTeX types.
