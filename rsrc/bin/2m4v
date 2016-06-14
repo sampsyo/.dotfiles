@@ -1,4 +1,4 @@
 #!/bin/sh
 for fn ; do
-ffmpeg -i $fn -codec copy $fn.m4v
+ffmpeg -i "$fn" -codec copy "$fn.m4v"
 done

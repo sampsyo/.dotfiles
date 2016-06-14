@@ -1,10 +1,11 @@
 #!/bin/bash
 if [[ "$1" =~ .(avi|m4v|mkv|mp4)$ ]]; then
     tvr "$1"
+    curl http://localhost:32400/library/sections/2/refresh
 elif [[ "$1" =~ .(zip)$ ]]; then
     unzip -d /media/mucho/Incoming "$1"
     chmod -R a+r `basename $1 .zip` || 1
 else
     echo "not video or zip"
 fi
-put_rm "$2"
+/home/asampson/.rsrc/bin/put_rm "$2"
