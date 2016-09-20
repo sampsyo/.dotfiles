@@ -87,16 +87,30 @@ nmap <leader>P <Plug>yankstack_substitute_newer_paste
 " Rainbow parentheses.
 nmap <leader>R :RainbowParenthesesToggle<CR>
 
+" Wildmenu: exploring files (incl. with CtrlP).
+set wildmode=list:longest
+set wildignore+=*.o,*.aux,*.bbl,*.blg,*.log
+set wildignore+=*.pyc,*.pyo,*.luac
+set wildignore+=.DS_Store
+set wildignore+=.hg,.git,.svn
+set wildignore+=*.orig
+set wildignore+=*.pdf,*.jpg,*.zip
+
 " CtrlP.
 nnoremap <leader>f :CtrlP<CR>
 nnoremap <leader>b :CtrlPBuffer<CR>
+let ignore_pats = split(&wildignore, ",")
+call map(ignore_pats, '"-x " . shellescape(v:val)')
+let git_exclude = join(ignore_pats, " ")
 let g:ctrlp_user_command = {
-	\ 'types': {
-		\ 1: ['.git', 'git --git-dir=%s/.git ls-files -oc --exclude-standard'],
-		\ 2: ['.hg', 'hg --cwd %s locate -I .'],
-		\ },
-	\ 'fallback': 'find %s -type f'
-	\ }
+    \ 'types': {
+        \ 1: ['.git',
+             \ 'git --git-dir=%s/.git ls-files -oc --exclude-standard ' .
+             \ git_exclude],
+        \ 2: ['.hg', 'hg --cwd %s locate -I .'],
+        \ },
+    \ 'fallback': 'find %s -type f'
+    \ }
 
 " bufkill.
 nnoremap <leader>x :BD<CR>
@@ -186,14 +200,6 @@ set autoread
 
 " Omnicompletion.
 let g:SuperTabDefaultCompletionType = "context"
-
-" Wildmenu: exploring files (incl. with Lusty).
-set wildmode=list:longest
-set wildignore+=*.o,*.aux,*.bbl,*.blg,*.log
-set wildignore+=*.pyc,*.pyo,*.luac
-set wildignore+=.DS_Store
-set wildignore+=.hg,.git,.svn
-set wildignore+=*.orig
 
 " :sb, :sbnext, :sbprev will look in other tabs/windows.
 set switchbuf=usetab
