@@ -40,6 +40,7 @@ Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'tpope/vim-fugitive'
 Plug 'justincampbell/vim-eighties'
+Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 call plug#end()
 
 " }}}
