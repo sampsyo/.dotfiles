@@ -41,6 +41,7 @@ Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'tpope/vim-fugitive'
 Plug 'justincampbell/vim-eighties'
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
+Plug 'fmoralesc/vim-pad', { 'branch': 'devel', 'on': ['Pad'] }
 call plug#end()
 
 " }}}
