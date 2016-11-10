@@ -359,6 +359,11 @@ augroup ft_tex
 
     " Skim line sync.
     autocmd FileType tex noremap <buffer> <silent> <leader>s :silent !/Applications/Skim.app/Contents/SharedSupport/displayline <C-r>=line('.')<CR> %<.pdf %<CR>"
+
+    " Disable auto-indent, which can be infuriating for TeX.
+    autocmd FileType tex setlocal nosmartindent
+    autocmd FileType tex setlocal nocindent
+    autocmd FileType tex setlocal indentexpr=
 augroup END
 
 " Building Java with ant.
