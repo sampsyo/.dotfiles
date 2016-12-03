@@ -13,7 +13,6 @@ Plug 'a.vim'
 Plug 'ack.vim', { 'on': 'Ack' }
 Plug 'qpkorr/vim-bufkill'
 Plug 'camelcasemotion'
-Plug 'sjbach/lusty'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
 Plug 'mitsuhiko/vim-python-combined', { 'for': 'python' }
@@ -49,9 +48,6 @@ call plug#end()
 
 " Vimpager.
 let vimpager_use_gvim = 1
-
-" LustyExplorer complains.
-let g:LustyJugglerSuppressRubyWarning = 1
 
 " netrw
 let g:netrw_silent = 1 " avoid irritating prompt on :w
@@ -446,9 +442,7 @@ nnoremap ; :
 " An incredibly common typo.
 command W w
 
-" No shift for alternate buffer.
-" FIXME It would be great if :A always added to the buffer list in a way that
-" lusty-juggler could see.
+" Don't require a shift press to get the alternate buffer.
 nnoremap <leader>a :A<CR>
 
 " Look up a line on GitHub.
