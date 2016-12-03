@@ -41,7 +41,6 @@ Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'fmoralesc/vim-pad', { 'branch': 'devel', 'on': ['Pad'] }
 Plug 'djmoch/vim-makejob', { 'on': ['MakeJob', 'GrepJob', 'LmakeJob',
     \ 'LgrepJob', 'GrepaddJob', 'LgrepaddJob'] }
-Plug 'w0rp/ale'
 call plug#end()
 
 " }}}
@@ -116,11 +115,6 @@ map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 " Keep the cursor in the same relative position.
 let g:asterisk#keeppos = 1
-
-" ALE.
-let g:ale_linters = {
-\   'python': ['flake8'],
-\}
 
 " }}}
 " The basics. {{{
