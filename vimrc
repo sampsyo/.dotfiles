@@ -3,7 +3,6 @@
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/bundle')
 Plug 'altercation/vim-colors-solarized'
-Plug 'scrooloose/syntastic'
 Plug 'tpope/vim-markdown'
 Plug 'sampsyo/autolink.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
@@ -31,7 +30,6 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'c0r73x/vimdir.vim'
 Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
-" Plug 'gilligan/vim-lldb', { 'for': ['c', 'cpp'] }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
@@ -42,6 +40,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'justincampbell/vim-eighties'
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'fmoralesc/vim-pad', { 'branch': 'devel', 'on': ['Pad'] }
+Plug 'djmoch/vim-makejob', { 'on': ['MakeJob', 'GrepJob', 'LmakeJob',
+    \ 'LgrepJob', 'GrepaddJob', 'LgrepaddJob'] }
 call plug#end()
 
 " }}}
@@ -52,26 +52,6 @@ let vimpager_use_gvim = 1
 
 " LustyExplorer complains.
 let g:LustyJugglerSuppressRubyWarning = 1
-
-" Syntastic config.
-let g:syntastic_check_on_open=1
-let g:syntastic_echo_current_error=1
-let g:syntastic_enable_balloons=1
-let g:syntastic_enable_signs=0
-let g:syntastic_enable_highlighting=1
-let g:syntastic_python_checkers=['flake8']
-let g:syntastic_error_symbol='✗'
-let g:syntastic_warning_symbol='⚠'
-let g:syntastic_always_populate_loc_list=1
-" Noisy PEP8 stuff.
-" E241 multiple spaces after , (useful for alignment)
-let g:syntastic_python_flake8_args="--ignore=E241 --exclude=''"
-" Use Clang.
-let g:syntastic_cpp_compiler = 'clang++'
-let g:syntastic_c_compiler = 'clang'
-let g:syntastic_typescript_tsc_args = "--noImplicitAny"
-" TypeScript: use tsconfig.json.
-let g:syntastic_typescript_tsc_fname = ''
 
 " netrw
 let g:netrw_silent = 1 " avoid irritating prompt on :w
@@ -377,9 +357,7 @@ augroup END
 augroup ft_python
     au!
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
-    au FileType python compiler pyunit
-    au FileType python setlocal makeprg=nosetests
-    au BufNewFile,BufRead */test_*.py setlocal makeprg=nosetests\ %
+    au FileType python compiler flake8
 augroup END
 
 " Go
