@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 dotfiles=$HOME/.dotfiles
 for fn in $( ls $dotfiles ) ; do
     if [ "${fn:0:1}" != "." ] && [ "${fn##*.}" != "orig" ] ; then
