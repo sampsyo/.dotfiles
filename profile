@@ -144,3 +144,9 @@ function ast()
 {
     autossh $1 -t -- tmux -u attach
 }
+
+# Use ripgrep as an easy find replacement.
+function rf()
+{
+    rg --files -g \*$@\*
+}

@@ -41,6 +41,7 @@ Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'fmoralesc/vim-pad', { 'branch': 'devel', 'on': ['Pad'] }
 Plug 'djmoch/vim-makejob', { 'on': ['MakeJob', 'GrepJob', 'LmakeJob',
     \ 'LgrepJob', 'GrepaddJob', 'LgrepaddJob'] }
+Plug 'jceb/vim-hier'
 call plug#end()
 
 " }}}
@@ -354,6 +355,9 @@ augroup ft_python
     au!
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
     au FileType python compiler flake8
+
+    " Use MakeJob for linting.
+    " autocmd BufWritePost *.py :LmakeJob! %<CR>
 augroup END
 
 " Go
