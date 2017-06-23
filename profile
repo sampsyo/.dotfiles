@@ -110,7 +110,9 @@ fi
 
 # JAVA_HOME
 if [ -e /usr/libexec/java_home ]; then
-    export JAVA_HOME=`/usr/libexec/java_home`
+    if /usr/libexec/java_home >/dev/null 2>&1 ; then
+        export JAVA_HOME=`/usr/libexec/java_home`
+    fi
 fi
 
 # Jikes
