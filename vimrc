@@ -341,6 +341,9 @@ augroup ft_tex
     autocmd FileType tex setlocal nosmartindent
     autocmd FileType tex setlocal nocindent
     autocmd FileType tex setlocal indentexpr=
+
+    " Soft wrap!
+    autocmd FileType tex setlocal wrap linebreak textwidth=0 showbreak=
 augroup END
 
 " Building Java with ant.
