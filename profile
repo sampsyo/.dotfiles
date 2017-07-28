@@ -1,5 +1,6 @@
 # All the paths I wish I had.
 export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share/pypy:$PATH
+export PATH=~/Library/Python/3.6/bin:$PATH
 export PATH=~/.rsrc/bin:$PATH
 export PATH=$PATH:~/.ec2/bin:~/.cabal/bin
 export PATH=$PATH:/usr/local/git/bin
@@ -25,7 +26,7 @@ if which go >/dev/null 2>&1 ; then
 fi
 
 # Ruby gem path.
-if which ruby >/dev/null && which gem >/dev/null; then
+if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 

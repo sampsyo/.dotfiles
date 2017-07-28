@@ -62,9 +62,16 @@ bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
 bindkey -M vicmd 'j' history-substring-search-down
 
-# Completion stuff.
-autoload -U compinit
-compinit -i
+# Initialize completion, updating only once per day. (Sadly, this doesn't seem
+# to work?)
+# https://gist.github.com/ctechols/ca1035271ad134841284
+autoload -Uz compinit
+if [[ -n ${ZDOTDIR}/.zcompdump(#qN.mh+24) ]]; then
+	compinit
+else
+	compinit -C
+fi
+
 # Nicer completion interface.
 zstyle ':completion:*' list-colors ''
 zstyle ':completion:*' menu select

@@ -418,6 +418,8 @@ quantized
 involutive
 Suren's
 dereference
+intrinsics
+parallelize
 subsampling
 demosiacing
 bilinear
