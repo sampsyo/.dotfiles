@@ -292,7 +292,7 @@ augroup END
 augroup ft_markdown
     au!
     autocmd FileType markdown setlocal wrap linebreak textwidth=0 showbreak=
-    autocmd FileType markdown setlocal makeprg=open\ -a\ Marked\ %
+    autocmd FileType markdown setlocal makeprg=open\ -a\ 'Marked\ 2'\ %
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
 
     " Math formulas in LaTeX.
