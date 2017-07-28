@@ -26,7 +26,7 @@ if which go >/dev/null 2>&1 ; then
 fi
 
 # Ruby gem path.
-if which ruby >/dev/null && which gem >/dev/null; then
+if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     PATH="$(ruby -rubygems -e 'puts Gem.user_dir')/bin:$PATH"
 fi
 
