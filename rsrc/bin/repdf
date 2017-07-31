@@ -1,0 +1,2 @@
+#!/bin/sh
+gs -o `basename $fn .pdf`.flat.pdf -sDEVICE=pdfwrite $fn

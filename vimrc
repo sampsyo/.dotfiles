@@ -42,6 +42,7 @@ Plug 'fmoralesc/vim-pad', { 'branch': 'devel', 'on': ['Pad'] }
 Plug 'djmoch/vim-makejob', { 'on': ['MakeJob', 'GrepJob', 'LmakeJob',
     \ 'LgrepJob', 'GrepaddJob', 'LgrepaddJob'] }
 Plug 'jceb/vim-hier'
+Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
 call plug#end()
 
 " }}}
@@ -210,6 +211,10 @@ nnoremap <leader>d :Dash<CR>
 " http://stackoverflow.com/q/486027
 set equalalways
 
+" Folds, based on syntax and open by default.
+set foldmethod=syntax
+au BufRead * normal zR
+
 " }}}
 " Searching. {{{
 set incsearch
@@ -297,6 +302,12 @@ augroup ft_markdown
 
     " Math formulas in LaTeX.
     autocmd FileType markdown syntax region Statement oneline matchgroup=Delimiter start="\$" skip="\\\$" end="\$"
+augroup END
+
+" TaskPaper.
+augroup ft_taskpaper
+    au!
+    autocmd FileType taskpaper setlocal wrap linebreak textwidth=0 showbreak=
 augroup END
 
 " LaTeX types.
