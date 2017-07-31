@@ -2,5 +2,5 @@
 fn=$1
 tempfn=$fn.TEMP
 gs -o $tempfn -sDEVICE=pdfwrite -dAutoRotatePages=/None \
-    -dNOTRANSPARENCY $fn
+    -dPDFSETTINGS=/prepress $fn
 mv $tempfn $fn
