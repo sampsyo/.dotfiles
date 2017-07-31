@@ -1,5 +1,6 @@
 #!/bin/sh
 fn=$1
 tempfn=$fn.TEMP
-gs -o $tempfn -sDEVICE=pdfwrite -dAutoRotatePages=/None $fn
+gs -o $tempfn -sDEVICE=pdfwrite -dAutoRotatePages=/None \
+    -dNOTRANSPARENCY $fn
 mv $tempfn $fn
