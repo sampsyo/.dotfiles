@@ -1,2 +1,5 @@
 #!/bin/sh
-gs -o `basename $fn .pdf`.flat.pdf -sDEVICE=pdfwrite $fn
+fn=$1
+tempfn=$fn.TEMP
+gs -o $tempfn -sDEVICE=pdfwrite $fn
+mv $tempfn $fn
