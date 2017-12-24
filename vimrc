@@ -122,6 +122,7 @@ let g:asterisk#keeppos = 1
 " Neomake.
 call neomake#configure#automake('rw')
 let g:neomake_python_enabled_makers = ['flake8', 'python']
+let g:neomake_tex_enabled_makers = ['rubber']
 
 " }}}
 " The basics. {{{
