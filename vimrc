@@ -43,6 +43,7 @@ Plug 'djmoch/vim-makejob', { 'on': ['MakeJob', 'GrepJob', 'LmakeJob',
     \ 'LgrepJob', 'GrepaddJob', 'LgrepaddJob'] }
 Plug 'jceb/vim-hier'
 Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
+Plug 'neomake/neomake'
 call plug#end()
 
 " }}}
@@ -117,6 +118,10 @@ map g* <Plug>(asterisk-gz*)
 map g# <Plug>(asterisk-gz#)
 " Keep the cursor in the same relative position.
 let g:asterisk#keeppos = 1
+
+" Neomake.
+call neomake#configure#automake('rw')
+let g:neomake_python_enabled_makers = ['flake8', 'python']
 
 " }}}
 " The basics. {{{
