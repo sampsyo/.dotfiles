@@ -44,6 +44,7 @@ Plug 'djmoch/vim-makejob', { 'on': ['MakeJob', 'GrepJob', 'LmakeJob',
 Plug 'jceb/vim-hier'
 Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
 Plug 'neomake/neomake'
+Plug 'lepture/vim-jinja'
 call plug#end()
 
 " }}}
