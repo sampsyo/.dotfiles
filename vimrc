@@ -125,6 +125,10 @@ call neomake#configure#automake('rw')
 let g:neomake_python_enabled_makers = ['flake8', 'python']
 let g:neomake_tex_enabled_makers = ['rubber']
 
+" Merlin for OCaml
+let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
+execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
 " }}}
 " The basics. {{{
 
