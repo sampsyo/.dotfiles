@@ -1,6 +1,7 @@
 # All the paths I wish I had.
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 export PATH=~/Library/Python/3.6/bin:$PATH
+export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH=~/.rsrc/bin:$PATH
 export PATH=$PATH:~/.ec2/bin:~/.cabal/bin
 export PATH=$PATH:/usr/local/git/bin
