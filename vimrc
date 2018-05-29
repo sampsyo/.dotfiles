@@ -45,6 +45,7 @@ Plug 'jceb/vim-hier'
 Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
 Plug 'neomake/neomake'
 Plug 'lepture/vim-jinja'
+Plug 'keith/swift', { 'for': 'swift' }
 call plug#end()
 
 " }}}
