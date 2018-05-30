@@ -580,6 +580,11 @@ subsampled
 Xilinx
 Zynq
 interpolator
+queueing
+GC
+accuracies
+outlier
+outliers
 parallelization
 repurposed
 runtimes
