@@ -157,5 +157,11 @@ function rf()
     rg --files -g \*$@\*
 }
 
+# Convert PDF to SVG with Inkscape.
+function pdf2svg()
+{
+    inkscape --without-gui --file=`pwd`/$1 --export-plain-svg=`pwd`/`basename $1 .pdf`.svg
+}
+
 # OPAM configuration.
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
