@@ -556,7 +556,7 @@ nnoremap <leader>! :Shell
 for d in glob('~/.vim/spell/*.add', 1, 1)
     if filereadable(d) && (!filereadable(d . '.spl') ||
                 \ getftime(d) > getftime(d . '.spl'))
-        exec 'mkspell! ' . fnameescape(d)
+        exec 'silent mkspell! ' . fnameescape(d)
     endif
 endfor
 " }}}
