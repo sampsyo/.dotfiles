@@ -125,6 +125,7 @@ let g:asterisk#keeppos = 1
 call neomake#configure#automake('rw')
 let g:neomake_python_enabled_makers = ['flake8', 'python']
 let g:neomake_tex_enabled_makers = ['rubber']
+let g:neomake_rust_enabled_makers = []
 
 " Merlin for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
