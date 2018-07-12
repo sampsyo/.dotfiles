@@ -63,6 +63,9 @@ else
 fi
 alias v="$GVIM --remote-silent"
 
+# A special window just for notes.
+alias vn="$GVIM --servername notes --remote-silent"
+
 # A fancy utility for opening the *visible* vim in a window manager (or opening
 # a new one otherwise). This requires the `wmctrl` utility, which interacts
 # with the WM to list windows and desktops. It uses a wrapper I wrote that

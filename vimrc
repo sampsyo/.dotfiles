@@ -561,3 +561,9 @@ for d in glob('~/.vim/spell/*.add', 1, 1)
     endif
 endfor
 " }}}
+" Notes window. {{{
+if v:servername == 'NOTES'
+    cd "~/Dropbox/Notes"
+    echo "This does not seem to work."
+endif
+" }}}
