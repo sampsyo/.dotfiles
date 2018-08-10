@@ -46,6 +46,7 @@ Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
 Plug 'neomake/neomake'
 Plug 'lepture/vim-jinja'
 Plug 'apple/swift', { 'for': 'swift', 'rtp': 'utils/vim' }
+Plug 'tedbauer/seashell.vim', { 'for': 'seashell' }
 call plug#end()
 
 " }}}
