@@ -125,6 +125,7 @@ let g:asterisk#keeppos = 1
 call neomake#configure#automake('rw')
 let g:neomake_python_enabled_makers = ['flake8', 'python']
 let g:neomake_tex_enabled_makers = ['rubber']
+let g:neomake_rust_enabled_makers = []
 
 " Merlin for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
@@ -559,4 +560,10 @@ for d in glob('~/.vim/spell/*.add', 1, 1)
         exec 'silent mkspell! ' . fnameescape(d)
     endif
 endfor
+" }}}
+" Notes window. {{{
+if v:servername == 'NOTES'
+    cd "~/Dropbox/Notes"
+    echo "This does not seem to work."
+endif
 " }}}
