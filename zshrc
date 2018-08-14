@@ -93,7 +93,7 @@ zstyle ':completion:*:*:(mvim|vim|gvim):*:*files' ignored-patterns \
     '*.aux' '*.bbl' '*.blg' '*.synctex.gz' '*.toc' \
     '*.pyc' '*.pyo' '__pycache__' \
     '*.log' '*.pdf' '*.out' 'revision.tex' '*.thm' \
-    '*.nav' '*.snm' '*.vrb'
+    '*.nav' '*.snm' '*.vrb' '*.fls' '*.xdv' '*.fdb_latexmk'
 # `kill` completion.
 zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#) ([0-9a-z-]#)*=01;34=0=01'
 zstyle ':completion:*:*:*:*:processes' command "ps -u `whoami` -o pid,user,comm -w -w"
