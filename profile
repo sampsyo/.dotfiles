@@ -168,3 +168,7 @@ function pdf2svg()
 
 # OPAM configuration.
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+
+# Aliases for exa.
+alias lx="exa --classify --git"
+alias lxl="lx -l"
