@@ -172,3 +172,4 @@ function pdf2svg()
 # Aliases for exa.
 alias lx="exa --classify --git"
 alias lxl="lx -l"
+alias lxt="lx -l --sort oldest"
