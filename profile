@@ -173,3 +173,7 @@ function pdf2svg()
 alias lx="exa --classify --git"
 alias lxl="lx -l"
 alias lxt="lx -l --sort newest"
+if which exa >/dev/null 2>&1 ; then
+    unalias l >/dev/null 2>&1
+    alias l="lx"
+fi
