@@ -129,4 +129,3 @@ setopt auto_cd
 
 # Typos.
 alias sl=ls
-alias l=ls
