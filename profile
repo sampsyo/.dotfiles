@@ -25,7 +25,12 @@ fi
 
 # Ruby gem path.
 if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
-    PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    # The proper way, which is really slow:
+    # PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
+    # A hacky shortcut:
+    for binpath in $( ls -d ~/.gem/ruby/*/bin ) ; do
+        export PATH=$binpath:$PATH
+    done
 fi
 
 export LUA_PATH="./?/init.lua;;"
@@ -86,11 +91,6 @@ else
 alias nose=nosetests
 fi
 
-# Alias ack on ubuntu, where it's called something horrible.
-if which ack-grep >/dev/null 2>&1 ; then
-alias ack=ack-grep
-fi
-
 # Alias python2 on platforms without it.
 if ! which python2 >/dev/null 2>&1 ; then
 alias python2=python
@@ -101,27 +101,9 @@ alias chromium="chromium --allow-file-access-from-files"
 # And also give it a shorter command.
 alias chrome=chromium
 
-# Gems in homebrew.
-if which brew >/dev/null 2>&1 ; then
-export GEM_HOME=$(brew --prefix)
-fi
-
 # gnome-terminal should be xterm-256color but doesn't provide an option.
 if [ "$COLORTERM" = "gnome-terminal" ]; then
     export TERM=xterm-256color
-fi
-
-# JAVA_HOME
-if [ -e /usr/libexec/java_home ]; then
-    if /usr/libexec/java_home >/dev/null 2>&1 ; then
-        export JAVA_HOME=`/usr/libexec/java_home`
-    fi
-fi
-
-# Jikes
-jikesbuild=~/uw/jikesrvm/dist
-if [ -e $jikesbuild ]; then
-    export JIKES=$jikesbuild/`ls $jikesbuild`
 fi
 
 # Find the Python file for a given module.
