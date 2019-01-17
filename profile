@@ -28,9 +28,11 @@ if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     # The proper way, which is really slow:
     # PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     # A hacky shortcut:
-    for binpath in $( ls -d ~/.gem/ruby/*/bin ) ; do
-        export PATH=$binpath:$PATH
-    done
+    if [ -d ~/.gem/ruby ] ; then
+        for binpath in $( ls -d ~/.gem/ruby/*/bin ) ; do
+            export PATH=$binpath:$PATH
+        done
+    fi
 fi
 
 export LUA_PATH="./?/init.lua;;"
