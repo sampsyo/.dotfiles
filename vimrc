@@ -10,7 +10,6 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
 Plug 'vim-scripts/a.vim'
-Plug 'vim-scripts/ack.vim', { 'on': 'Ack' }
 Plug 'qpkorr/vim-bufkill'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'ervandew/supertab'
@@ -18,7 +17,6 @@ Plug 'tpope/vim-surround'
 Plug 'mitsuhiko/vim-python-combined', { 'for': 'python' }
 Plug 'vim-scripts/Zenburn'
 Plug 'maxbrunsfeld/vim-yankstack'
-Plug 'godlygeek/tabular'
 Plug 'juvenn/mustache.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -39,8 +37,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'justincampbell/vim-eighties'
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'fmoralesc/vim-pad', { 'branch': 'devel', 'on': ['Pad'] }
-Plug 'djmoch/vim-makejob', { 'on': ['MakeJob', 'GrepJob', 'LmakeJob',
-    \ 'LgrepJob', 'GrepaddJob', 'LgrepaddJob'] }
 Plug 'jceb/vim-hier'
 Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
 Plug 'neomake/neomake'
@@ -385,9 +381,6 @@ augroup ft_python
     au!
     au FileType python setlocal define=^\s*\\(def\\\\|class\\)
     au FileType python compiler flake8
-
-    " Use MakeJob for linting.
-    " autocmd BufWritePost *.py :LmakeJob! %<CR>
 augroup END
 
 " Go
