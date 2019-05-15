@@ -35,6 +35,13 @@ if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     fi
 fi
 
+# LaTeX path.
+if [ -d /usr/local/texlive ] ; then
+    for binpath in $( ls -d /usr/local/texlive/*/bin/* ) ; do
+        export PATH=$binpath:$PATH
+    done
+fi
+
 export LUA_PATH="./?/init.lua;;"
 export LUA_INIT="require 'luarocks.require'"
 
