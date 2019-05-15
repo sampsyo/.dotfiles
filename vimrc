@@ -47,7 +47,7 @@ Plug 'neomake/neomake'
 Plug 'lepture/vim-jinja'
 Plug 'jph00/swift-apple', { 'for': 'swift' }
 Plug 'tedbauer/seashell.vim', { 'for': 'seashell' }
-Plug 'MisanthropicBit/vim-cram', { 'for': 'cram' }
+Plug 'pbrisbin/vim-cram', { 'for': 'cram' }
 call plug#end()
 
 " }}}
