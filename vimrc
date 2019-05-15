@@ -9,14 +9,14 @@ Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-unimpaired'
-Plug 'a.vim'
-Plug 'ack.vim', { 'on': 'Ack' }
+Plug 'vim-scripts/a.vim'
+Plug 'vim-scripts/ack.vim', { 'on': 'Ack' }
 Plug 'qpkorr/vim-bufkill'
-Plug 'camelcasemotion'
+Plug 'vim-scripts/camelcasemotion'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
 Plug 'mitsuhiko/vim-python-combined', { 'for': 'python' }
-Plug 'Zenburn'
+Plug 'vim-scripts/Zenburn'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'godlygeek/tabular'
 Plug 'juvenn/mustache.vim'
@@ -47,6 +47,7 @@ Plug 'neomake/neomake'
 Plug 'lepture/vim-jinja'
 Plug 'jph00/swift-apple', { 'for': 'swift' }
 Plug 'tedbauer/seashell.vim', { 'for': 'seashell' }
+Plug 'MisanthropicBit/vim-cram', { 'for': 'cram' }
 call plug#end()
 
 " }}}
