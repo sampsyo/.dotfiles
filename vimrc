@@ -97,14 +97,6 @@ nnoremap <leader>x :BD<CR>
 let g:BufKillCreateMappings = 0
 
 " Airline.
-set laststatus=2  " Always show status line.
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
-if has('gui_running')
-    let g:airline_theme='solarized'
-else
-    let g:airline_theme='tomorrow'
-end
 
 " Signify (hg/git diff in the gutter).
 let g:signify_disable_by_default = 1
