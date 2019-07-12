@@ -44,6 +44,7 @@ Plug 'lepture/vim-jinja'
 Plug 'jph00/swift-apple', { 'for': 'swift' }
 Plug 'tedbauer/seashell.vim', { 'for': 'seashell' }
 Plug 'pbrisbin/vim-cram', { 'for': 'cram' }
+Plug 'jremmen/vim-ripgrep'
 call plug#end()
 
 " }}}
