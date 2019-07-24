@@ -721,3 +721,5 @@ manycore
 HammerBlade
 HBIR
 SPMD
+elementwise
+word2vec
