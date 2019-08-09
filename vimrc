@@ -141,6 +141,7 @@ set encoding=utf-8
 set showmode
 set lazyredraw
 set hidden
+set showcmd " see <Leader>
 
 " Splits in the expected place.
 set splitbelow
