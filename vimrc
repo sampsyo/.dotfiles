@@ -50,6 +50,10 @@ call plug#end()
 " }}}
 " Plugins. {{{
 
+" Leader key: use either \ or ,.
+let mapleader = ","
+nmap \ ,
+
 " Vimpager.
 let vimpager_use_gvim = 1
 
