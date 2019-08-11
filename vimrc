@@ -83,7 +83,7 @@ set wildignore+=*.pdf,*.jpg,*.zip
 
 " CtrlP.
 nnoremap <leader>f :CtrlP<CR>
-nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>k :CtrlPBuffer<CR>
 let ignore_pats = split(&wildignore, ",")
 call map(ignore_pats, '"-x " . shellescape(v:val)')
 let git_exclude = join(ignore_pats, " ")
