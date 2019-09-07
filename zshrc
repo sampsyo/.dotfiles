@@ -125,5 +125,8 @@ setopt auto_pushd
 setopt pushd_ignore_dups
 setopt auto_cd
 
+# Report long-running commands.
+export REPORTTIME=5
+
 # Typos.
 alias sl=ls
