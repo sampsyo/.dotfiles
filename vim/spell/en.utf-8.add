@@ -613,6 +613,8 @@ TAs
 anonymized
 anonymize
 affine
+BRAM
+BRAMs
 BRAM's
 HPCA
 CAMW
@@ -724,6 +726,8 @@ SPMD
 elementwise
 word2vec
 verifiability
+other's
+Bril
 assistantship
 provers
 subcircuit
@@ -741,3 +745,5 @@ TCUs
 F1
 SDSoC
 SDAccel
+LSTMs
+DNNs
