@@ -118,7 +118,9 @@ let g:asterisk#keeppos = 1
 
 " Neomake.
 call neomake#configure#automake('rw')
-let g:neomake_python_enabled_makers = ['flake8', 'python']
+let g:neomake_python_enabled_makers = ['flake8', 'mypy', 'python']
+let g:neomake_python_mypy_args = neomake#makers#ft#python#mypy().args +
+    \ ['--no-check-untyped-defs']
 let g:neomake_tex_enabled_makers = ['rubber']
 let g:neomake_rust_enabled_makers = []
 
