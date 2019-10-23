@@ -725,6 +725,8 @@ HBIR
 SPMD
 elementwise
 word2vec
+optimality
+unaccelerated
 verifiability
 other's
 Bril
