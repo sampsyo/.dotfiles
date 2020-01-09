@@ -264,6 +264,7 @@ autocmd BufNewFile,BufRead */enerc/*.cpp,*/enerc/*.h setlocal sw=2 ts=2 sts=2
 autocmd BufNewFile,BufRead */passert-llvm/*.cpp,*/passert-llvm/*.h
     \ setlocal sw=2 ts=2 sts=2
 autocmd BufNewFile,BufRead */Notes/*.txt setlocal filetype=markdown
+autocmd BufNewFile,BufRead *-review*.txt setlocal filetype=markdown
 " }}}
 " Backups/swapfiles. {{{
 if isdirectory($HOME . '/.vim/tmp') == 0
