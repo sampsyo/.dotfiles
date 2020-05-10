@@ -165,3 +165,5 @@ if which exa >/dev/null 2>&1 ; then
 else
     alias l="ls"
 fi
+
+export PATH="$HOME/.cargo/bin:$PATH"
