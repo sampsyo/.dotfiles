@@ -130,3 +130,6 @@ export REPORTTIME=5
 
 # Typos.
 alias sl=ls
+
+# Disable that godforsaken bell when tab-completing.
+setopt no_list_beep
