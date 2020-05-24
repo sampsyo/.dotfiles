@@ -19,12 +19,9 @@ Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'juvenn/mustache.vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'groenewege/vim-less'
 Plug 'tpope/vim-sensible'
 Plug 'JuliaLang/julia-vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'c0r73x/vimdir.vim'
-Plug 'rizzatti/dash.vim', { 'on': 'Dash' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'haya14busa/incsearch.vim'
@@ -32,16 +29,10 @@ Plug 'haya14busa/vim-asterisk'
 Plug 'ctrlpvim/ctrlp.vim', { 'on': ['CtrlP', 'CtrlPBuffer'] }
 Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
-Plug 'tpope/vim-fugitive'
-Plug 'justincampbell/vim-eighties'
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
-Plug 'fmoralesc/vim-pad', { 'branch': 'devel', 'on': ['Pad'] }
-Plug 'jceb/vim-hier'
-Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
 Plug 'neomake/neomake'
 Plug 'lepture/vim-jinja'
 Plug 'jph00/swift-apple', { 'for': 'swift' }
-Plug 'pbrisbin/vim-cram', { 'for': 'cram' }
 Plug 'jremmen/vim-ripgrep'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
