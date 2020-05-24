@@ -3,7 +3,6 @@
 " https://github.com/junegunn/vim-plug
 call plug#begin('~/.vim/bundle')
 Plug 'altercation/vim-colors-solarized'
-Plug 'tpope/vim-markdown'
 Plug 'sampsyo/autolink.vim'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'tpope/vim-repeat'
@@ -42,9 +41,10 @@ Plug 'davidoc/taskpaper.vim', { 'for': 'taskpaper' }
 Plug 'neomake/neomake'
 Plug 'lepture/vim-jinja'
 Plug 'jph00/swift-apple', { 'for': 'swift' }
-Plug 'tedbauer/seashell.vim', { 'for': 'seashell' }
 Plug 'pbrisbin/vim-cram', { 'for': 'cram' }
 Plug 'jremmen/vim-ripgrep'
+Plug 'godlygeek/tabular'
+Plug 'plasticboy/vim-markdown'
 call plug#end()
 
 " }}}
@@ -127,6 +127,11 @@ let g:neomake_rust_enabled_makers = []
 " Merlin for OCaml
 let g:opamshare = substitute(system('opam config var share'),'\n$','','''')
 execute "set rtp+=" . g:opamshare . "/merlin/vim"
+
+" Markdown.
+let g:vim_markdown_math = 1
+let g:vim_markdown_frontmatter = 1
+let g:vim_markdown_toml_frontmatter = 1
 
 " }}}
 " The basics. {{{
@@ -312,9 +317,6 @@ augroup ft_markdown
     autocmd FileType markdown setlocal wrap linebreak textwidth=0 showbreak=
     autocmd FileType markdown setlocal makeprg=open\ -a\ 'Marked\ 2'\ %
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
-
-    " Math formulas in LaTeX.
-    autocmd FileType markdown syntax region Statement oneline matchgroup=Delimiter start="\$" skip="\\\$" end="\$"
 augroup END
 
 " TaskPaper.
