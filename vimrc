@@ -123,6 +123,7 @@ execute "set rtp+=" . g:opamshare . "/merlin/vim"
 let g:vim_markdown_math = 1
 let g:vim_markdown_frontmatter = 1
 let g:vim_markdown_toml_frontmatter = 1
+let g:vim_markdown_new_list_item_indent = 0  " New list items at same level.
 
 " }}}
 " The basics. {{{
@@ -220,7 +221,7 @@ set equalalways
 
 " Folds, based on syntax and open by default.
 set foldmethod=syntax
-au BufRead * normal zR
+set foldlevelstart=20
 
 " }}}
 " Searching. {{{
