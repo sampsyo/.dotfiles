@@ -306,7 +306,7 @@ augroup END
 " Filetypes for prose writing.
 augroup ft_markdown
     au!
-    autocmd FileType markdown setlocal wrap linebreak textwidth=0 showbreak=
+    autocmd FileType markdown setlocal wrap linebreak textwidth=0 showbreak=NONE
     autocmd FileType markdown setlocal makeprg=open\ -a\ 'Marked\ 2'\ %
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
 augroup END
@@ -314,7 +314,7 @@ augroup END
 " TaskPaper.
 augroup ft_taskpaper
     au!
-    autocmd FileType taskpaper setlocal wrap linebreak textwidth=0 showbreak=
+    autocmd FileType taskpaper setlocal wrap linebreak textwidth=0 showbreak=NONE
 augroup END
 
 " LaTeX types.
@@ -361,7 +361,7 @@ augroup ft_tex
     autocmd FileType tex setlocal indentexpr=
 
     " Soft wrap!
-    autocmd FileType tex setlocal wrap linebreak textwidth=0 showbreak=
+    autocmd FileType tex setlocal wrap linebreak textwidth=0 showbreak=NONE
 augroup END
 
 " Building Java with ant.
