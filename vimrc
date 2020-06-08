@@ -306,7 +306,8 @@ augroup END
 " Filetypes for prose writing.
 augroup ft_markdown
     au!
-    autocmd FileType markdown setlocal wrap linebreak textwidth=0 showbreak=NONE
+    autocmd FileType markdown setlocal wrap linebreak textwidth=0
+    autocmd FileType markdown setlocal showbreak=NONE breakindent
     autocmd FileType markdown setlocal makeprg=open\ -a\ 'Marked\ 2'\ %
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
 augroup END
