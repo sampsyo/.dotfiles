@@ -133,3 +133,8 @@ alias sl=ls
 
 # Disable that godforsaken bell when tab-completing.
 setopt no_list_beep
+
+# Auto-complete SSH hosts from ~/.config/hosts.
+# https://www.zsh.org/mla/users/2015/msg00467.html
+zstyle -e ':completion:*:*:ssh:*:my-accounts' users-hosts \
+	'[[ -f ~/.ssh/config && $key = hosts ]] && key=my_hosts reply=()'
