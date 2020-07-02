@@ -4,3 +4,4 @@
 .coverage
 *.egg-info
 .mypy_cache
+.vscode
