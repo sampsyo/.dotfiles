@@ -3,7 +3,7 @@ set columns=80
 
 " Mac vs. Linux font.
 if has("gui_macvim")
-    set guifont=Source\ Code\ Pro:h10
+    set guifont=Source\ Code\ Pro:h12
 else
     set guifont=Inconsolata
 endif
