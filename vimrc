@@ -32,7 +32,7 @@ Plug 'alunny/pegjs-vim', { 'for': 'pegjs' }
 Plug 'digitaltoad/vim-pug', { 'for': 'pug' }
 Plug 'neomake/neomake'
 Plug 'lepture/vim-jinja'
-Plug 'jph00/swift-apple', { 'for': 'swift' }
+Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'jremmen/vim-ripgrep'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
