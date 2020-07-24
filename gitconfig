@@ -7,11 +7,15 @@
     slog = log --oneline --decorate --graph
     st = status --short --branch
     civ = commit --verbose
-    
+
     # Make commit work like Mercurial (and like `git status`, `git diff`,
     # ...). With no arguments, commit everything; with arguments, commit those
     # files.
     ci = "!sh -c 'if [ -z \"$1\" ]; then git civ -a; else git civ $@; fi'" -
+
+    # Try really hard to push when there are concurrent editors, like on
+    # Overleaf.
+    superpush = "!sh -c 'while true; do git pull -r; git push && break; done'"
 
 [push]
 	default = simple
