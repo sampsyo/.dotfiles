@@ -162,4 +162,11 @@ else
     alias l="ls"
 fi
 
+# Shortcut for viewing.
+if which bat >/dev/null 2>&1 ; then
+    alias c=bat
+else
+    alias c=less
+fi
+
 export PATH="$HOME/.cargo/bin:$PATH"
