@@ -118,12 +118,8 @@ fi
 # Find the Python file for a given module.
 function pywhich()
 {
-    python -c "import $1; print $1.__file__" | sed 's/\.py[co]$/.py/'
+    python -c "import $1; print($1.__file__)" | sed 's/\.py[co]$/.py/'
 }
-
-# Fix "Open With" duplicate entries on OS X.
-# http://www.leancrew.com/all-this/2013/02/getting-rid-of-open-with-duplicates/
-alias fixopenwith='/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user'
 
 # Run additional profile chunks.
 [ -f $HOME/.dotfiles_extra/profile.sh ] && . $HOME/.dotfiles_extra/profile.sh
