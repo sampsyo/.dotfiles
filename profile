@@ -53,7 +53,13 @@ alias t="tmux -u attach"
 alias hs="hg st ."
 alias vl=vimpager
 alias unq="xattr -d com.apple.quarantine"  # Gatekeeper.
-alias skim="open -a skim"
+
+# Shortcut for opening PDFs in Skim. (Not using `alias` make it possible to
+# change autocompletion behavior in zhs.)
+function skim()
+{
+    open -a skim $@
+}
 
 # Alias xdg-open to open.
 if which xdg-open >/dev/null 2>&1 ; then
