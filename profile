@@ -160,12 +160,14 @@ function pdf2svg()
 
 # Aliases for exa.
 alias lx="exa --classify --git"
-alias lxl="lx -l"
-alias lxt="lx -l --sort newest"
 if which exa >/dev/null 2>&1 ; then
     alias l="lx"
+    alias ll="lx -l"
+    alias lt="lx -l --sort newest"
 else
     alias l="ls"
+    alias ll="ls -l"
+    alias lt="ls -ltr"
 fi
 
 # Shortcut for viewing.
