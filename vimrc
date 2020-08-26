@@ -36,6 +36,7 @@ Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'jremmen/vim-ripgrep'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
+Plug 'sampsyo/bril', { 'for': 'bril', 'rtp': 'bril-vim' }
 call plug#end()
 
 " }}}
