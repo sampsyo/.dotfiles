@@ -11,7 +11,7 @@ export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$PATH:~/.node_modules/bin
-export PATH=$PATH:~/.cargo/bin
+export PATH=$HOME/.cargo/bin:$PATH
 
 export EDITOR=vim
 export PINDIR=~/pin
@@ -177,4 +177,7 @@ else
     alias c=less
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH"
+# z.
+if which zoxide >/dev/null 2>&1 ; then
+    eval "$(zoxide init zsh)"
+fi

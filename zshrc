@@ -8,7 +8,7 @@ source ~/.rsrc/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 # %{$fg[green]%}▸ %{$reset_color%}"
 # One-line prompt:
 autoload -U colors && colors
-RPROMPT="%{$fg[green]%}%D{%L:%M:%S%p} %m:%~%{$reset_color%}"
+RPROMPT="%{$fg[green]%}%m:%~%{$reset_color%}"
 PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
 
 # Backward search, like bash.
