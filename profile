@@ -176,3 +176,8 @@ if which bat >/dev/null 2>&1 ; then
 else
     alias c=less
 fi
+
+# z.
+if which zoxide >/dev/null 2>&1 ; then
+    eval "$(zoxide init zsh)"
+fi
