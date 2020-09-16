@@ -56,10 +56,15 @@ git_info() {
   echo "${(j: :)GIT_INFO}"
 }
 
+# Show host only when connected via SSH.
+ssh_host() {
+  [[ "$SSH_CONNECTION" != '' ]] && echo "%m:" || echo ""
+}
+
 # One-line left/right prompt:
 autoload -U colors && colors
 setopt prompt_subst
-RPROMPT="\$(git_info) %{$fg[green]%}%m:%~%{$reset_color%}"
+RPROMPT="\$(git_info) %{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
 PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
 
 # Backward search, like bash.
