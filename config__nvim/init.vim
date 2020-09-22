@@ -1,3 +1,8 @@
+" vim-plug.
+call plug#begin()
+Plug 'chaoren/vim-wordmotion'
+call plug#end()
+
 " Leader key: use either \ or ,.
 let mapleader = ","
 nmap \ ,
