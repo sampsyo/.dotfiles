@@ -181,3 +181,6 @@ fi
 if which zoxide >/dev/null 2>&1 ; then
     eval "$(zoxide init zsh)"
 fi
+
+# GPG: why on earth is this necessary (why can't it just use `tty` itself)?
+export GPG_TTY=`tty`
