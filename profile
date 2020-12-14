@@ -180,6 +180,8 @@ fi
 # z.
 if which zoxide >/dev/null 2>&1 ; then
     eval "$(zoxide init zsh)"
+elif [ -f ~/.rsrc/z.sh ]; then
+    . ~/.rsrc/z.sh
 fi
 
 # GPG: why on earth is this necessary (why can't it just use `tty` itself)?
