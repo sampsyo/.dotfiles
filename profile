@@ -55,7 +55,7 @@ alias vl=vimpager
 alias unq="xattr -d com.apple.quarantine"  # Gatekeeper.
 
 # Shortcut for opening PDFs in Skim. (Not using `alias` make it possible to
-# change autocompletion behavior in zhs.)
+# change autocompletion behavior in zsh.)
 function skim()
 {
     open -a skim $@
@@ -182,6 +182,10 @@ if which zoxide >/dev/null 2>&1 ; then
     eval "$(zoxide init zsh)"
 elif [ -f ~/.rsrc/z.sh ]; then
     . ~/.rsrc/z.sh
+    # Use normal cd-like completion for z (on zsh).
+    if type compctl >/dev/null 2>&1; then
+        compctl -/ _z
+    fi
 fi
 
 # GPG: why on earth is this necessary (why can't it just use `tty` itself)?
