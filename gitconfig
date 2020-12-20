@@ -1,7 +1,7 @@
 [user]
 	name = Adrian Sampson
 	email = adrian@radbox.org
-	signingkey = BDB93AB409CC8705
+	signingkey = adrian@radbox.org
 
 [alias]
     reverth = reset --hard
