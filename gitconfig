@@ -1,6 +1,7 @@
 [user]
 	name = Adrian Sampson
 	email = adrian@radbox.org
+	signingkey = 8E8398CF175BE458
 
 [alias]
     reverth = reset --hard
@@ -37,3 +38,5 @@
 	smudge = git-lfs smudge -- %f
 	required = true
 	process = git-lfs filter-process
+[commit]
+	gpgsign = true
