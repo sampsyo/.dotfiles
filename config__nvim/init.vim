@@ -1,7 +1,16 @@
 " vim-plug.
 call plug#begin()
 Plug 'chaoren/vim-wordmotion'
+Plug 'lifepillar/vim-solarized8'
 call plug#end()
+
+" Color scheme.
+if has("gui_vimr")
+    set background=light
+else
+    set background=dark
+endif
+colorscheme solarized8
 
 " Leader key: use either \ or ,.
 let mapleader = ","
