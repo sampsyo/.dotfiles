@@ -22,7 +22,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'tpope/vim-sensible'
 Plug 'JuliaLang/julia-vim'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'wting/rust.vim', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim'
 Plug 'cespare/vim-toml', { 'for': 'toml' }
 Plug 'haya14busa/incsearch.vim'
 Plug 'haya14busa/vim-asterisk'
