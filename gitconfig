@@ -40,3 +40,7 @@
 	process = git-lfs filter-process
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = main
+[pull]
+	rebase = false
