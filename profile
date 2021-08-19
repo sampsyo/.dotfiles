@@ -190,3 +190,11 @@ fi
 
 # GPG: why on earth is this necessary (why can't it just use `tty` itself)?
 export GPG_TTY=`tty`
+
+# git's colorful diff.
+function giff () {
+    git diff --no-index $@
+}
+function wiff () {
+    giff --word-diff $@
+}
