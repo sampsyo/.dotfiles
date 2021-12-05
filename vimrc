@@ -38,6 +38,7 @@ Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'sampsyo/bril', { 'for': 'bril', 'rtp': 'bril-vim' }
 Plug 'cucapra/futil', { 'for': 'futil', 'rtp': 'tools/vim/futil' }
+Plug 'ruanyl/vim-gh-line'
 call plug#end()
 
 " }}}
