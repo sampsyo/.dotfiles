@@ -66,6 +66,10 @@ if which xdg-open >/dev/null 2>&1 ; then
 alias open="xdg-open"
 fi
 
+# Run additional profile chunks.
+[ -f $HOME/.dotfiles_extra/profile.sh ] && . $HOME/.dotfiles_extra/profile.sh
+[ -f $HOME/.profile_local ] && . $HOME/.profile_local
+
 # Alias to gvim or mvim.
 if which mvim >/dev/null 2>&1 ; then
     export GVIM=mvim
@@ -126,10 +130,6 @@ function pywhich()
 {
     python -c "import $1; print($1.__file__)" | sed 's/\.py[co]$/.py/'
 }
-
-# Run additional profile chunks.
-[ -f $HOME/.dotfiles_extra/profile.sh ] && . $HOME/.dotfiles_extra/profile.sh
-[ -f $HOME/.profile_local ] && . $HOME/.profile_local
 
 # wdiff with colors.
 alias wdiffc="wdiff -w $'\033[30;41m' -x $'\033[0m' \
