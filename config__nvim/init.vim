@@ -2,6 +2,7 @@
 call plug#begin()
 Plug 'chaoren/vim-wordmotion'
 Plug 'lifepillar/vim-solarized8'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 " Color scheme.
