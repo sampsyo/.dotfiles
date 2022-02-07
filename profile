@@ -7,11 +7,11 @@ export PATH=$PATH:~/.ec2/bin:~/.cabal/bin
 export PATH=$PATH:/usr/local/git/bin
 export PATH=$PATH:/usr/bin/vendor_perl
 export PATH=$PATH:/usr/texbin
-export PATH=$PATH:$HOME/.gem/ruby/2.0.0/bin
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$PATH:~/.node_modules/bin
 export PATH=$HOME/.cargo/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:$PATH
 
 export EDITOR=vim
 export PINDIR=~/pin
@@ -65,6 +65,10 @@ function skim()
 if which xdg-open >/dev/null 2>&1 ; then
 alias open="xdg-open"
 fi
+
+# Run additional profile chunks.
+[ -f $HOME/.dotfiles_extra/profile.sh ] && . $HOME/.dotfiles_extra/profile.sh
+[ -f $HOME/.profile_local ] && . $HOME/.profile_local
 
 # Alias to gvim or mvim.
 if which mvim >/dev/null 2>&1 ; then
@@ -126,10 +130,6 @@ function pywhich()
 {
     python -c "import $1; print($1.__file__)" | sed 's/\.py[co]$/.py/'
 }
-
-# Run additional profile chunks.
-[ -f $HOME/.dotfiles_extra/profile.sh ] && . $HOME/.dotfiles_extra/profile.sh
-[ -f $HOME/.profile_local ] && . $HOME/.profile_local
 
 # wdiff with colors.
 alias wdiffc="wdiff -w $'\033[30;41m' -x $'\033[0m' \

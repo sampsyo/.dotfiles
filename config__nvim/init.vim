@@ -2,6 +2,7 @@
 call plug#begin()
 Plug 'chaoren/vim-wordmotion'
 Plug 'lifepillar/vim-solarized8'
+Plug 'ntpeters/vim-better-whitespace'
 call plug#end()
 
 " Color scheme.
@@ -21,3 +22,6 @@ nnoremap ; :
 
 " Y should work like D or C (by default yanks the whole line).
 nnoremap Y y$
+
+" Mark subword motion with leader.
+let g:wordmotion_prefix = '<Leader>'
