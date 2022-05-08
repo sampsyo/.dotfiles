@@ -110,9 +110,12 @@ else
 alias nose=nosetests
 fi
 
-# Alias python2 on platforms without it.
+# Alias python2 & python on platforms without it.
 if ! which python2 >/dev/null 2>&1 ; then
-alias python2=python
+    alias python2=python
+fi
+if ! which python >/dev/null 2>&1 ; then
+    alias python=python3
 fi
 
 # Make chromium allow local AJAX.
