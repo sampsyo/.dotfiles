@@ -12,6 +12,7 @@ export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$PATH:~/.node_modules/bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=$HOME/.deno/bin:$PATH
 
 export EDITOR=vim
 export PINDIR=~/pin
