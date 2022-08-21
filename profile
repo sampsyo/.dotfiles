@@ -34,6 +34,11 @@ if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
             export PATH=$binpath:$PATH
         done
     fi
+    if [ -d ~/.local/share/gem/ruby ] ; then
+        for binpath in $( ls -d ~/.local/share/gem/ruby/*/bin ) ; do
+            export PATH=$binpath:$PATH
+        done
+    fi
 fi
 
 # LaTeX path.
