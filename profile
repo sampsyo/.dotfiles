@@ -14,6 +14,11 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=$HOME/.deno/bin:$PATH
 
+# Homebrew path.
+if [ -d /opt/homebrew ] ; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 export EDITOR=vim
 export PINDIR=~/pin
 export PYTHONSTARTUP=~/.pystartup
