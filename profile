@@ -202,6 +202,11 @@ elif [ -f ~/.rsrc/z.sh ]; then
     fi
 fi
 
+# Debian's name for `fd`.
+if which fdfind >/dev/null 2>&1 ; then
+    alias fd=fdfind
+fi
+
 # GPG: why on earth is this necessary (why can't it just use `tty` itself)?
 export GPG_TTY=`tty`
 
