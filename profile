@@ -184,9 +184,11 @@ else
     alias lt="ls -ltr"
 fi
 
-# Shortcut for viewing.
+# Shortcut for viewing. (`batcat` is Debian's name for it.)
 if which bat >/dev/null 2>&1 ; then
     alias c=bat
+elif which batcat >/dev/null 2>&1 ; then
+    alias c=batcat
 else
     alias c=less
 fi
