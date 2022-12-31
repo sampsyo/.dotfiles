@@ -14,6 +14,11 @@ export PATH=$HOME/.cargo/bin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=$HOME/.deno/bin:$PATH
 
+# Homebrew path.
+if [ -d /opt/homebrew ] ; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
+
 export EDITOR=vim
 export PINDIR=~/pin
 export PYTHONSTARTUP=~/.pystartup
@@ -179,9 +184,11 @@ else
     alias lt="ls -ltr"
 fi
 
-# Shortcut for viewing.
+# Shortcut for viewing. (`batcat` is Debian's name for it.)
 if which bat >/dev/null 2>&1 ; then
     alias c=bat
+elif which batcat >/dev/null 2>&1 ; then
+    alias c=batcat
 else
     alias c=less
 fi
@@ -195,6 +202,11 @@ elif [ -f ~/.rsrc/z.sh ]; then
     if type compctl >/dev/null 2>&1; then
         compctl -/ _z
     fi
+fi
+
+# Debian's name for `fd`.
+if which fdfind >/dev/null 2>&1 ; then
+    alias fd=fdfind
 fi
 
 # GPG: why on earth is this necessary (why can't it just use `tty` itself)?

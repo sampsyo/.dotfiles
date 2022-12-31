@@ -1,7 +1,6 @@
 [user]
 	name = Adrian Sampson
 	email = adrian@radbox.org
-	signingkey = adrian@radbox.org
 
 [alias]
     reverth = reset --hard
@@ -46,3 +45,7 @@
 	rebase = false
 [tag]
 	gpgSign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
