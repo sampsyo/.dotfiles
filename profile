@@ -219,3 +219,7 @@ function giff () {
 function wiff () {
     giff --word-diff $@
 }
+
+# Tailscale CLI on macOS.
+_tsapp=/Applications/Tailscale.app/Contents/MacOS/Tailscale
+[ -f $_tsapp ] && alias tailscale=$_tsapp
