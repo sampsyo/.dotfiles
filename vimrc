@@ -147,6 +147,7 @@ set showmode
 set lazyredraw
 set hidden
 set showcmd " see <Leader>
+set smoothscroll
 
 " Splits in the expected place.
 set splitbelow
