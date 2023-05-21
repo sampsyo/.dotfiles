@@ -1,6 +1,9 @@
 import atexit
 import os
-import readline
+try:
+    import gnureadline as readline
+except ImportError:
+    import readline
 import rlcompleter
 
 historyPath = os.path.expanduser("~/.pyhistory")
