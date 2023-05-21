@@ -366,6 +366,9 @@ augroup ft_tex
 
     " Soft wrap!
     autocmd FileType tex setlocal wrap linebreak textwidth=0 showbreak=NONE
+
+    " Enable spell checking, even when it's a partial TeX file.
+    autocmd FileType tex syntax spell toplevel
 augroup END
 
 " Building Java with ant.
