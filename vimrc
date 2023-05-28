@@ -39,6 +39,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'sampsyo/bril', { 'for': 'bril', 'rtp': 'bril-vim' }
 Plug 'cucapra/futil', { 'for': 'futil', 'rtp': 'tools/vim/futil' }
 Plug 'ruanyl/vim-gh-line'
+Plug 'kaarmu/typst.vim', { 'for': 'typ' }
 call plug#end()
 
 " }}}
@@ -147,6 +148,7 @@ set showmode
 set lazyredraw
 set hidden
 set showcmd " see <Leader>
+set smoothscroll
 
 " Splits in the expected place.
 set splitbelow
@@ -313,6 +315,11 @@ augroup ft_markdown
     autocmd FileType markdown setlocal makeprg=open\ -a\ 'Marked\ 2'\ %
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
 augroup END
+augroup ft_typst
+    au!
+    autocmd FileType typst setlocal wrap linebreak textwidth=0
+    autocmd FileType typst setlocal showbreak=NONE breakindent
+augroup END
 
 " TaskPaper.
 augroup ft_taskpaper
@@ -365,6 +372,9 @@ augroup ft_tex
 
     " Soft wrap!
     autocmd FileType tex setlocal wrap linebreak textwidth=0 showbreak=NONE
+
+    " Enable spell checking, even when it's a partial TeX file.
+    autocmd FileType tex syntax spell toplevel
 augroup END
 
 " Building Java with ant.

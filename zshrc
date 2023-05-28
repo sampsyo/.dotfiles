@@ -197,3 +197,6 @@ setopt no_list_beep
 # https://www.zsh.org/mla/users/2015/msg00467.html
 zstyle -e ':completion:*:*:ssh:*:my-accounts' users-hosts \
 	'[[ -f ~/.ssh/config && $key = hosts ]] && key=my_hosts reply=()'
+
+# Autocomplete z like cd.
+compdef __zoxide_z=cd

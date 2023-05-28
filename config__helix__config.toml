@@ -1,0 +1,9 @@
+theme = "spacebones_light"
+
+[editor]
+bufferline = "multiple"
+
+[editor.cursor-shape]
+insert = "bar"
+normal = "block"
+select = "underline"
