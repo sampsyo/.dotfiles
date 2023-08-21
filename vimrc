@@ -13,7 +13,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
-Plug 'mitsuhiko/vim-python-combined', { 'for': 'python' }
 Plug 'vim-scripts/Zenburn'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'juvenn/mustache.vim'
