@@ -1,6 +1,6 @@
 # All the paths I wish I had.
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=~/Library/Python/3.9/bin:$PATH
+export PATH=~/Library/Python/3.11/bin:$PATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH=~/.rsrc/bin:$PATH
 export PATH=$PATH:~/.ec2/bin:~/.cabal/bin
@@ -12,6 +12,13 @@ export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$PATH:~/.node_modules/bin
 export PATH=$HOME/.cargo/bin:$PATH
 export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=$HOME/.yarn/bin:$PATH
+export PATH=$HOME/.deno/bin:$PATH
+
+# Homebrew path.
+if [ -d /opt/homebrew ] ; then
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+fi
 
 export EDITOR=vim
 export PINDIR=~/pin
@@ -30,6 +37,11 @@ if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     # A hacky shortcut:
     if [ -d ~/.gem/ruby ] ; then
         for binpath in $( ls -d ~/.gem/ruby/*/bin ) ; do
+            export PATH=$binpath:$PATH
+        done
+    fi
+    if [ -d ~/.local/share/gem/ruby ] ; then
+        for binpath in $( ls -d ~/.local/share/gem/ruby/*/bin ) ; do
             export PATH=$binpath:$PATH
         done
     fi
@@ -173,9 +185,11 @@ else
     alias lt="ls -ltr"
 fi
 
-# Shortcut for viewing.
+# Shortcut for viewing. (`batcat` is Debian's name for it.)
 if which bat >/dev/null 2>&1 ; then
     alias c=bat
+elif which batcat >/dev/null 2>&1 ; then
+    alias c=batcat
 else
     alias c=less
 fi
@@ -191,6 +205,11 @@ elif [ -f ~/.rsrc/z.sh ]; then
     fi
 fi
 
+# Debian's name for `fd`.
+if which fdfind >/dev/null 2>&1 ; then
+    alias fd=fdfind
+fi
+
 # GPG: why on earth is this necessary (why can't it just use `tty` itself)?
 export GPG_TTY=`tty`
 
@@ -201,3 +220,7 @@ function giff () {
 function wiff () {
     giff --word-diff $@
 }
+
+# Tailscale CLI on macOS.
+_tsapp=/Applications/Tailscale.app/Contents/MacOS/Tailscale
+[ -f $_tsapp ] && alias tailscale=$_tsapp
