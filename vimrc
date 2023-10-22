@@ -13,7 +13,6 @@ Plug 'qpkorr/vim-bufkill'
 Plug 'vim-scripts/camelcasemotion'
 Plug 'ervandew/supertab'
 Plug 'tpope/vim-surround'
-Plug 'mitsuhiko/vim-python-combined', { 'for': 'python' }
 Plug 'vim-scripts/Zenburn'
 Plug 'maxbrunsfeld/vim-yankstack'
 Plug 'juvenn/mustache.vim'
@@ -39,6 +38,7 @@ Plug 'plasticboy/vim-markdown'
 Plug 'sampsyo/bril', { 'for': 'bril', 'rtp': 'bril-vim' }
 Plug 'cucapra/futil', { 'for': 'futil', 'rtp': 'tools/vim/futil' }
 Plug 'ruanyl/vim-gh-line'
+Plug 'kaarmu/typst.vim', { 'for': 'typ' }
 call plug#end()
 
 " }}}
@@ -315,6 +315,11 @@ augroup ft_markdown
     autocmd FileType markdown setlocal showbreak=NONE breakindent
     autocmd FileType markdown setlocal makeprg=open\ -a\ 'Marked\ 2'\ %
     autocmd FileType markdown nnoremap <leader>m :silent make\|redraw!<CR>
+augroup END
+augroup ft_typst
+    au!
+    autocmd FileType typst setlocal wrap linebreak textwidth=0
+    autocmd FileType typst setlocal showbreak=NONE breakindent
 augroup END
 
 " TaskPaper.
