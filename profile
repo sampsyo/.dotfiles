@@ -65,6 +65,7 @@ alias t="tmux -u attach"
 alias hs="hg st ."
 alias vl=vimpager
 alias unq="xattr -d com.apple.quarantine"  # Gatekeeper.
+alias we="watchexec --no-meta"
 
 # Shortcut for opening PDFs in Skim. (Not using `alias` make it possible to
 # change autocompletion behavior in zsh.)
