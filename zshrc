@@ -200,3 +200,11 @@ zstyle -e ':completion:*:*:ssh:*:my-accounts' users-hosts \
 
 # Autocomplete z like cd.
 compdef __zoxide_z=cd
+
+# Ensure ssh-agent is running.
+if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
+    eval $(ssh-agent -s)
+fi
+if ! ssh-add -l &>/dev/null; then
+     ssh-add
+fi
