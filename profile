@@ -21,14 +21,7 @@ if [ -d /opt/homebrew ] ; then
 fi
 
 export EDITOR=vim
-export PINDIR=~/pin
 export PYTHONSTARTUP=~/.pystartup
-
-# Go path.
-if which go >/dev/null 2>&1 ; then
-    export GOPATH=$HOME/code/go
-    export PATH=$PATH:`go env GOROOT`/bin:$GOPATH/bin
-fi
 
 # Ruby gem path.
 if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
@@ -53,9 +46,6 @@ if [ -d /usr/local/texlive ] ; then
         export PATH=$binpath:$PATH
     done
 fi
-
-export LUA_PATH="./?/init.lua;;"
-export LUA_INIT="require 'luarocks.require'"
 
 export MYSHELL=/bin/zsh
 
@@ -129,16 +119,6 @@ if ! which python2 >/dev/null 2>&1 ; then
 fi
 if ! which python >/dev/null 2>&1 ; then
     alias python=python3
-fi
-
-# Make chromium allow local AJAX.
-alias chromium="chromium --allow-file-access-from-files"
-# And also give it a shorter command.
-alias chrome=chromium
-
-# gnome-terminal should be xterm-256color but doesn't provide an option.
-if [ "$COLORTERM" = "gnome-terminal" ]; then
-    export TERM=xterm-256color
 fi
 
 # Find the Python file for a given module.
