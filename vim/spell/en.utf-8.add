@@ -991,3 +991,7 @@ GFA
 GFAv1
 symlink
 nontrivially
+pthreads
+losslessly
+nucleotide
+64-bit
