@@ -145,10 +145,10 @@ function rf()
     rg --files -g \*$@\*
 }
 
-# Convert PDF to SVG with Inkscape.
+# Convert PDF to SVG with Poppler.
 function pdf2svg()
 {
-    inkscape --without-gui --file=`pwd`/$1 --export-plain-svg=`pwd`/`basename $1 .pdf`.svg
+    pdftocairo -svg $1 `basename $1 .pdf`.svg
 }
 
 # OPAM configuration.
