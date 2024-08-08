@@ -14,5 +14,10 @@
     "inline_blame": {
       "enabled": false
     }
+  },
+  "languages": {
+    "CSS": {
+      "tab_size": 2
+    }
   }
 }
