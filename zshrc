@@ -2,6 +2,7 @@
 fpath=(~/.rsrc/zsh/zsh-completions/src $fpath)
 source ~/.rsrc/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.rsrc/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
+source ~/.rsrc/zsh/wezterm.sh
 
 # Git status blob for the shell. Stolen from:
 # https://github.com/joshdick/dotfiles/blob/master/zshrc.symlink
