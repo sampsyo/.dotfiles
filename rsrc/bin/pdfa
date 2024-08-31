@@ -1,0 +1,6 @@
+#!/bin/sh
+fn=`basename $1 .pdf`
+outfn=$fn.a.pdf
+gs -dPDFA=1 -dBATCH -dNOPAUSE -dNOOUTERSAVE -sProcessColorModel=DeviceRGB \
+    -sDEVICE=pdfwrite -dPDFACompatibilityPolicy=1 \
+    -sOutputFile=$outfn $1
