@@ -124,6 +124,7 @@ bindkey -M vicmd 'j' history-substring-search-down
 autoload -Uz compinit
 for dump in ~/.zcompdump(N.mh+24); do
   compinit
+  compdump  # Update timestamp, even if unchanged.
 done
 compinit -C
 
