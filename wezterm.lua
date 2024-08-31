@@ -27,4 +27,28 @@ config.keys = {
   },
 }
 
+function basename(s)
+  return string.gsub(s, '(.*[/\\])(.*)', '%2')
+end
+
+-- By default, the tab title would show Vim's exit-title string *permanently*
+-- if Vim had ever run, even once, in the tab. This is a hacky workaround to
+-- detect that title and fall back to the process name instead. Kind of a
+-- workaround for wezterm #5800, which would support a "title stack."
+wezterm.on(
+  'format-tab-title',
+  function(tab, tabs, panes, config, hover, max_width)
+    local pane = tab.active_pane
+
+    local title = pane.title
+    local proc = basename(pane.foreground_process_name)
+
+    if title == "Thanks for flying Vim" then
+      return proc
+    else
+      return title
+    end
+  end
+)
+
 return config
