@@ -19,5 +19,10 @@
     "CSS": {
       "tab_size": 2
     }
+  },
+  "language_models": {
+    "ollama": {
+      "api_url": "http://gorgonzola:11434"
+    }
   }
 }
