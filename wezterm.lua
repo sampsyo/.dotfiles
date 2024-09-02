@@ -31,6 +31,19 @@ function basename(s)
   return string.gsub(s, '(.*[/\\])(.*)', '%2')
 end
 
+local home = os.getenv("HOME")
+function short_dir(s)
+  if s == "/" then
+    return s
+  end
+  s = string.gsub(s, '/$', '')
+  if s == home then
+    return "~"
+  else
+    return basename(s)
+  end
+end
+
 -- By default, the tab title would show Vim's exit-title string *permanently*
 -- if Vim had ever run, even once, in the tab. This is a hacky workaround to
 -- detect that title and fall back to the process name instead. Kind of a
@@ -41,10 +54,15 @@ wezterm.on(
     local pane = tab.active_pane
 
     local title = pane.title
-    local proc = basename(pane.foreground_process_name)
-
     if title == "Thanks for flying Vim" then
-      return proc
+      -- Use the process name when the explicit title is not useful.
+      title = basename(pane.foreground_process_name)
+    end
+
+    if title == "zsh" then
+      -- When it's a shell, show the working directory.
+      local path = pane.current_working_dir.file_path
+      return short_dir(path)
     else
       return title
     end
