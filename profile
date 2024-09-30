@@ -1,6 +1,6 @@
 # All the paths I wish I had.
 export PATH=/usr/local/bin:/usr/local/sbin:$PATH
-export PATH=~/Library/Python/3.11/bin:$PATH
+export PATH=~/Library/Python/3.12/bin:$PATH
 export PATH=/usr/local/opt/python/libexec/bin:$PATH
 export PATH=~/.rsrc/bin:$PATH
 export PATH=$PATH:~/.ec2/bin:~/.cabal/bin
@@ -158,8 +158,12 @@ function pdf2svg()
 . ~/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
 
 # Aliases for exa.
-alias lx="exa --classify --git"
 if which exa >/dev/null 2>&1 ; then
+    alias lx="exa --classify --git"
+elif which eza >/dev/null 2>&1 ; then
+    alias lx="eza --classify --git"
+fi
+if lx >/dev/null 2>&1 ; then
     alias l="lx"
     alias ll="lx -l"
     alias lt="lx -l --sort newest"

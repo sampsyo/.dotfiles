@@ -39,6 +39,7 @@ Plug 'sampsyo/bril', { 'for': 'bril', 'rtp': 'bril-vim' }
 Plug 'cucapra/futil', { 'for': 'futil', 'rtp': 'tools/vim/futil' }
 Plug 'ruanyl/vim-gh-line'
 Plug 'kaarmu/typst.vim', { 'for': 'typ' }
+Plug 'tikhomirov/vim-glsl', { 'for': 'glsl' }
 call plug#end()
 
 " }}}
