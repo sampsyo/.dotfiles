@@ -154,7 +154,10 @@ function rf()
 # Convert PDF to SVG with Poppler.
 function pdf2svg()
 {
-    pdftocairo -svg $1 `basename $1 .pdf`.svg
+    for fn in $1
+    do
+        pdftocairo -svg $fn `basename $fn .pdf`.svg
+    done
 }
 
 # OPAM configuration.
