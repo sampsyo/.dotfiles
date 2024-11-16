@@ -64,6 +64,12 @@ function skim()
     open -a skim $@
 }
 
+# And a related shortcut for viewing & watch-building a PDF.
+function swe()
+{
+    make $1 && skim $1 && we make $1
+}
+
 # Alias xdg-open to open.
 if which xdg-open >/dev/null 2>&1 ; then
 alias open="xdg-open"
