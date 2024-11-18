@@ -64,6 +64,12 @@ function skim()
     open -a skim $@
 }
 
+# And a related shortcut for viewing & watch-building a PDF.
+function swe()
+{
+    make $1 && skim $1 && we make $1
+}
+
 # Alias xdg-open to open.
 if which xdg-open >/dev/null 2>&1 ; then
 alias open="xdg-open"
@@ -148,7 +154,10 @@ function rf()
 # Convert PDF to SVG with Poppler.
 function pdf2svg()
 {
-    pdftocairo -svg $1 `basename $1 .pdf`.svg
+    for fn in $1
+    do
+        pdftocairo -svg $fn `basename $fn .pdf`.svg
+    done
 }
 
 # OPAM configuration.

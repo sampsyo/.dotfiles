@@ -21,6 +21,7 @@
 	default = simple
 [core]
 	excludesfile = ~/.gitignore
+    pager = delta
 [color]
 	ui = true
 [help]
@@ -32,7 +33,7 @@
 
 [merge]
 	tool = opendiff
-	conflictStyle = diff3
+	conflictStyle = zdiff3
 [filter "lfs"]
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
@@ -50,3 +51,5 @@
 	format = ssh
 [gpg "ssh"]
 	defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
+[interactive]
+    diffFilter = delta --color-only
