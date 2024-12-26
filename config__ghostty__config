@@ -1,0 +1,9 @@
+window-width = 80
+window-height = 24
+cursor-style-blink = false
+cursor-style = block
+font-size = 11
+theme = IR_Black
+font-thicken = true
+background-opacity = 0.87
+background-blur-radius = 20
