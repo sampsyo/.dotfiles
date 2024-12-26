@@ -1040,6 +1040,11 @@ parentheticals
 implicants
 implicant
 minterms
+AXI
+raycasting
+parallelizes
+Gradescope
+raycaster
 FemtoProc's
 FemtoProc
 macOS
