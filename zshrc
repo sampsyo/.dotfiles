@@ -68,6 +68,20 @@ setopt prompt_subst
 RPROMPT="\$(git_info) %{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
 PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
 
+# Control cursor shape, even in vi mode, using DECSCUSR.
+# https://ghostty.org/docs/vt/esc/decscusr
+zle-line-init() {
+  echo -ne "\e[2 q"
+}
+zle -N zle-line-init
+function zle-keymap-select () {
+  case $KEYMAP in
+  vicmd) echo -ne '\e[2 q';;
+  viins|main) echo -ne '\e[6 q';;
+  esac
+}
+zle -N zle-keymap-select
+
 # Backward search, like bash.
 bindkey '^R' history-incremental-search-backward
 
