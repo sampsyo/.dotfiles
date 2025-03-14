@@ -8,3 +8,5 @@ font-thicken = true
 background-opacity = 0.87
 background-blur-radius = 40
 cursor-color = #ffa560
+window-padding-x = 6
+window-padding-y = 4
