@@ -19,6 +19,11 @@ config.native_macos_fullscreen_mode = true
 config.window_background_opacity = 0.87
 config.macos_window_background_blur = 40
 
+-- There doesn't seem to be a way to disable the *quit* prompt
+-- (`confirm_quit_program`) without disabling the *close* prompt... so let's
+-- give this a try.
+config.window_close_confirmation = 'AlwaysPrompt'
+
 config.keys = {
   {
     key = 'k',
