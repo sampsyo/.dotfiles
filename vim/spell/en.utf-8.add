@@ -1057,3 +1057,6 @@ mutex
 uniprocessors
 multitenancy
 multiprogramming
+vectorize
+vectorizer
+SLP
