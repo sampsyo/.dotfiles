@@ -21,7 +21,6 @@ if [ -d /opt/homebrew ] ; then
 fi
 
 export EDITOR=vim
-export PYTHONSTARTUP=~/.pystartup
 
 # Ruby gem path.
 if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
