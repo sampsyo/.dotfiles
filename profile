@@ -28,12 +28,12 @@ if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     # PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     # A hacky shortcut:
     if [ -d ~/.gem/ruby ] ; then
-        for binpath in $( ls -d ~/.gem/ruby/*/bin ) ; do
+        for binpath in ~/.gem/ruby/*/bin(.N) ; do
             export PATH=$binpath:$PATH
         done
     fi
     if [ -d ~/.local/share/gem/ruby ] ; then
-        for binpath in $( ls -d ~/.local/share/gem/ruby/*/bin ) ; do
+        for binpath in ~/.local/share/gem/ruby/*/bin(.N) ; do
             export PATH=$binpath:$PATH
         done
     fi
