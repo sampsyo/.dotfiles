@@ -23,25 +23,21 @@ fi
 export EDITOR=vim
 
 # Ruby gem path.
+[[ -n "$ZSH_VERSION" ]] && unsetopt nomatch
 if which ruby >/dev/null 2>&1 && which gem >/dev/null 2>&1; then
     # The proper way, which is really slow:
     # PATH="$(ruby -r rubygems -e 'puts Gem.user_dir')/bin:$PATH"
     # A hacky shortcut:
-    if [ -d ~/.gem/ruby ] ; then
-        for binpath in ~/.gem/ruby/*/bin(.N) ; do
+    for binpath in ~/.gem/ruby/*/bin ~/.local/share/gem/ruby/*/bin ; do
+        if [ -d $binpath ] ; then
             export PATH=$binpath:$PATH
-        done
-    fi
-    if [ -d ~/.local/share/gem/ruby ] ; then
-        for binpath in ~/.local/share/gem/ruby/*/bin(.N) ; do
-            export PATH=$binpath:$PATH
-        done
-    fi
+        fi
+    done
 fi
 
 # LaTeX path.
 if [ -d /usr/local/texlive ] ; then
-    for binpath in $( ls -d /usr/local/texlive/*/bin/* ) ; do
+    for binpath in /usr/local/texlive/*/bin/* ; do
         export PATH=$binpath:$PATH
     done
 fi
@@ -189,7 +185,11 @@ fi
 
 # z.
 if which zoxide >/dev/null 2>&1 ; then
-    eval "$(zoxide init zsh)"
+    if [[ -n "$ZSH_VERSION" ]] ; then
+        eval "$(zoxide init zsh)"
+    else
+        eval "$(zoxide init bash)"
+    fi
 elif [ -f ~/.rsrc/z.sh ]; then
     . ~/.rsrc/z.sh
     # Use normal cd-like completion for z (on zsh).
