@@ -2,6 +2,9 @@
   "features": {
     "edit_prediction_provider": "zed"
   },
+  "edit_predictions": {
+    "mode": "subtle"
+  },
   "theme": {
     "mode": "system",
     "light": "macOS Classic Light",
@@ -19,6 +22,9 @@
     }
   },
   "languages": {
+    "Markdown": {
+      "show_edit_predictions": false
+    },
     "CSS": {
       "tab_size": 2
     },
