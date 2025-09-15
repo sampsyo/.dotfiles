@@ -1060,3 +1060,6 @@ multiprogramming
 vectorize
 vectorizer
 SLP
+unparameterized
+elaboratable
+elaborator
