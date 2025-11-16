@@ -1,4 +1,11 @@
 {
+  "indent_guides": {
+    "enabled": false
+  },
+  "gutter": {
+    "min_line_number_digits": 3,
+    "folds": false
+  },
   "show_edit_predictions": false,
   "features": {
     "edit_prediction_provider": "none"
