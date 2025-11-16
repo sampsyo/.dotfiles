@@ -3,7 +3,8 @@
     "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
     "bindings": {
       ";": "command_palette::Toggle",
-      "shift-y": ["workspace::SendKeystrokes", "y $"]
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+      "tab": "tab_switcher::Toggle"
     }
   }
 ]
