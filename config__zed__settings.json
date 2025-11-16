@@ -1,16 +1,10 @@
 {
-  "features": {
-    "edit_prediction_provider": "zed"
-  },
-  "edit_predictions": {
-    "mode": "subtle"
-  },
+  "vim_mode": true,
   "theme": {
     "mode": "system",
     "light": "macOS Classic Light",
     "dark": "macOS Classic Dark"
   },
-  "vim_mode": true,
   "ui_font_size": 16,
   "buffer_font_size": 12,
   "buffer_font_features": {
@@ -22,16 +16,8 @@
     }
   },
   "languages": {
-    "Markdown": {
-      "show_edit_predictions": false
-    },
     "CSS": {
       "tab_size": 2
-    },
-    "Python": {
-      "language_servers": ["pyright", "ruff"],
-      "format_on_save": "on",
-      "formatter": [{ "language_server": { "name": "ruff" } }]
     }
   },
   "lsp": {
@@ -41,11 +27,6 @@
           "lineLength": 80
         }
       }
-    }
-  },
-  "language_models": {
-    "ollama": {
-      "api_url": "http://gorgonzola:11434"
     }
   }
 }
