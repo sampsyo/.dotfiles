@@ -1,4 +1,39 @@
 {
+  "show_edit_predictions": false,
+  "features": {
+    "edit_prediction_provider": "none"
+  },
+  "notification_panel": {
+    "button": false
+  },
+  "agent": {
+    "button": false
+  },
+  "collaboration_panel": {
+    "button": false
+  },
+  "outline_panel": {
+    "button": false
+  },
+  "bottom_dock_layout": "contained",
+  "preview_tabs": {
+    "enabled": false
+  },
+  "title_bar": {
+    "show_sign_in": false,
+    "show_user_picture": false,
+    "show_onboarding_banner": false,
+    "show_project_items": true
+  },
+  "debugger": {
+    "button": false
+  },
+  "search": {
+    "button": false
+  },
+  "terminal": {
+    "button": false
+  },
   "vim_mode": true,
   "theme": {
     "mode": "system",
@@ -9,6 +44,9 @@
   "buffer_font_size": 12,
   "buffer_font_features": {
     "calt": false
+  },
+  "tab_bar": {
+    "show": false
   },
   "git": {
     "inline_blame": {
