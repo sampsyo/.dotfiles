@@ -1,10 +1,19 @@
 [
   {
-    "context": "Editor && (vim_mode == normal || vim_mode == visual) && !VimWaiting && !menu",
+    "context": "VimControl && !menu",
     "bindings": {
       ";": "command_palette::Toggle",
-      "shift-y": ["workspace::SendKeystrokes", "y $"],
-      "tab": "tab_switcher::Toggle"
+      "tab": "tab_switcher::Toggle",
+      ", w": "vim::NextSubwordStart",
+      ", b": "vim::PreviousSubwordStart",
+      ", e": "vim::NextSubwordEnd",
+      ", E": "vim::PreviousSubwordEnd"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      "shift-y": ["workspace::SendKeystrokes", "y $"]
     }
   }
 ]
