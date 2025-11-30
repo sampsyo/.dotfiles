@@ -1,4 +1,5 @@
 {
+  "buffer_line_height": "standard",
   "indent_guides": {
     "enabled": false
   },
@@ -48,7 +49,7 @@
     "dark": "macOS Classic Dark"
   },
   "preferred_line_length": 80,
-  "ui_font_size": 16,
+  "ui_font_size": 14,
   "buffer_font_size": 12,
   "buffer_font_features": {
     "calt": false
