@@ -14,3 +14,5 @@ font-size = 11
 font-feature = -calt
 font-feature = -liga
 font-feature = -dlig
+
+keybind = command+enter=text:\n
