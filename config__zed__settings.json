@@ -43,6 +43,12 @@
     "button": false
   },
   "vim_mode": true,
+  "auto_install_extensions": {
+    "html": true,
+    "deno": true,
+    "make": true,
+    "macos-classic": true
+  },
   "theme": {
     "mode": "system",
     "light": "macOS Classic Light",
