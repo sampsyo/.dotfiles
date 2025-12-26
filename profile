@@ -217,3 +217,6 @@ function wiff () {
 # Tailscale CLI on macOS.
 _tsapp=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 [ -f $_tsapp ] && alias tailscale=$_tsapp
+
+# Forgejo CLI.
+alias cb="fj --host codeberg.org"
