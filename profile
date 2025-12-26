@@ -220,3 +220,6 @@ _tsapp=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 
 # Forgejo CLI.
 alias cb="fj --host codeberg.org"
+
+# wget-like curl.
+alias cget="curl -#LOJ"
