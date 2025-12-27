@@ -1,88 +1,93 @@
 {
   "buffer_line_height": "standard",
   "indent_guides": {
-    "enabled": false
+    "enabled": false,
   },
   "gutter": {
     "min_line_number_digits": 3,
-    "folds": false
+    "folds": false,
   },
   "show_edit_predictions": false,
   "features": {
-    "edit_prediction_provider": "none"
+    "edit_prediction_provider": "none",
   },
   "notification_panel": {
-    "button": false
+    "button": false,
   },
   "agent": {
-    "button": false
+    "button": false,
   },
   "collaboration_panel": {
-    "button": false
+    "button": false,
   },
   "outline_panel": {
-    "button": false
+    "button": false,
   },
   "bottom_dock_layout": "contained",
   "preview_tabs": {
-    "enabled": false
+    "enabled": false,
   },
   "title_bar": {
     "show_sign_in": false,
     "show_user_picture": false,
     "show_onboarding_banner": false,
-    "show_project_items": true
+    "show_project_items": true,
   },
   "debugger": {
-    "button": false
+    "button": false,
   },
   "search": {
-    "button": false
+    "button": false,
   },
   "terminal": {
-    "button": false
+    "button": false,
   },
   "vim_mode": true,
+  "vim": {
+    "use_system_clipboard": "never",
+    "use_smartcase_find": true,
+    "highlight_on_yank_duration": 100,
+  },
   "auto_install_extensions": {
     "html": true,
     "deno": true,
     "make": true,
-    "macos-classic": true
+    "macos-classic": true,
   },
   "theme": {
     "mode": "system",
     "light": "macOS Classic Light",
-    "dark": "macOS Classic Dark"
+    "dark": "macOS Classic Dark",
   },
   "preferred_line_length": 80,
   "ui_font_size": 14,
   "buffer_font_size": 12,
   "buffer_font_features": {
-    "calt": false
+    "calt": false,
   },
   "tab_bar": {
-    "show": false
+    "show": false,
   },
   "git": {
     "inline_blame": {
-      "enabled": false
-    }
+      "enabled": false,
+    },
   },
   "languages": {
     "CSS": {
-      "tab_size": 2
+      "tab_size": 2,
     },
     "Python": {
-      "language_servers": ["ruff"]
-    }
+      "language_servers": ["ruff"],
+    },
   },
   "lsp": {
     "ruff": {
       "initialization_options": {
         "settings": {
-          "lineLength": 80
-        }
-      }
-    }
-  }
+          "lineLength": 80,
+        },
+      },
+    },
+  },
 }
