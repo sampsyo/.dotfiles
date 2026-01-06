@@ -1,4 +1,7 @@
 {
+  "sticky_scroll": {
+    "enabled": true
+  },
   "buffer_line_height": "standard",
   "indent_guides": {
     "enabled": false,
