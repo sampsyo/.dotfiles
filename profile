@@ -220,7 +220,6 @@ _tsapp=/Applications/Tailscale.app/Contents/MacOS/Tailscale
 
 # eget
 export EGET_BIN=$HOME/.local/bin
-||||||| e56947a
 
 # Forgejo CLI.
 alias cb="fj --host codeberg.org"
