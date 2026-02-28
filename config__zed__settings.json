@@ -1,6 +1,9 @@
 {
+  "edit_predictions": {
+    "provider": "none"
+  },
   "sticky_scroll": {
-    "enabled": true
+    "enabled": true,
   },
   "buffer_line_height": "standard",
   "indent_guides": {
@@ -11,9 +14,6 @@
     "folds": false,
   },
   "show_edit_predictions": false,
-  "features": {
-    "edit_prediction_provider": "none",
-  },
   "notification_panel": {
     "button": false,
   },
@@ -77,20 +77,14 @@
     },
   },
   "languages": {
+    "HTML": {
+      "tab_size": 2
+    },
     "CSS": {
       "tab_size": 2,
     },
     "Python": {
       "language_servers": ["ruff"],
-    },
-  },
-  "lsp": {
-    "ruff": {
-      "initialization_options": {
-        "settings": {
-          "lineLength": 80,
-        },
-      },
     },
   },
 }
