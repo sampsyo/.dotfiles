@@ -1084,3 +1084,5 @@ concretize
 associativity
 Decompilation
 intraprocedural
+reorderings
+denormalization
