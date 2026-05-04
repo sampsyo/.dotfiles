@@ -15,7 +15,7 @@ else
     }
     autoload -U colors && colors
     setopt prompt_subst
-    RPROMPT="\$(git_info) %{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
+    RPROMPT="%{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
     PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
 fi
 
