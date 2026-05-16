@@ -8,3 +8,6 @@ email = "adrian@radbox.org"
 behavior = "own"
 backend = "ssh"
 key = "~/.ssh/id_rsa.pub"
+
+[revsets]
+log = "ancestors(@, 8) | ancestors(immutable_heads().., 2) | present(trunk())"
