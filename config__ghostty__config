@@ -16,6 +16,8 @@ font-feature = -liga
 font-feature = -dlig
 
 keybind = command+enter=text:\n
+keybind = command+c=copy_to_clipboard:plain
+keybind = command+shift+c=copy_to_clipboard:mixed
 
 window-inherit-working-directory = false
 tab-inherit-working-directory = true
