@@ -1,0 +1,18 @@
+#!/bin/sh
+# https://oppi.li/posts/jjj/
+
+cmd="${1:-show}"
+shift
+
+selected=$(
+  jj log -r 'all()' --color=always \
+    | fzf \
+        --min-height=15 \
+        --cycle \
+        --ansi \
+        --prompt "jj $cmd> "
+) || exit 0
+
+rev=$(echo "$selected" | awk '{for(i=1;i<=NF;i++) if(length($i)>=7){print $i; exit}}')
+
+jj "$cmd" -r "$rev" "$@"
