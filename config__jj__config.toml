@@ -11,3 +11,10 @@ key = "~/.ssh/id_rsa.pub"
 
 [revsets]
 log = "ancestors(@, 8) | ancestors(immutable_heads().., 2) | present(trunk())"
+bookmark-advance-to = "closest_pushable(@)"
+
+[revset-aliases]
+# https://docs.jj-vcs.dev/latest/config/#bookmark-advance-default-targets
+"closest_pushable(to)" = '''
+  heads(::to & mutable() & ~description(exact:"") & (~empty() | merges()))
+'''
