@@ -164,7 +164,7 @@ if which exa >/dev/null 2>&1 ; then
 elif which eza >/dev/null 2>&1 ; then
     alias lx="eza --classify --git"
 fi
-if lx >/dev/null 2>&1 ; then
+if which lx >/dev/null 2>&1 ; then
     alias l="lx"
     alias ll="lx -l"
     alias lt="lx -l --sort newest"
