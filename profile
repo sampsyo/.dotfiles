@@ -226,3 +226,7 @@ alias cb="fj --host codeberg.org"
 
 # wget-like curl.
 alias cget="curl -#LOJ"
+
+# Set the browser for samply.
+_firefox=/Applications/Firefox.app/Contents/MacOS/firefox
+[ -f $_firefox ] && alias samply="BROWSER=$_firefox samply"
