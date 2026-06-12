@@ -48,6 +48,10 @@ prompt_job() {
     print ${vcs_info_msg_0_}
 }
 prompt_precmd() {
+    # Reset the prompt to avoid showing stale data.
+    RPROMPT="… $BASIC_RPROMPT"
+    zle && zle reset-prompt
+    # Then, compute a real prompt.
     async_flush_jobs prompt_worker
     async_job prompt_worker prompt_job $PWD
 }
