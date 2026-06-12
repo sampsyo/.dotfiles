@@ -4,20 +4,44 @@ source ~/.rsrc/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.rsrc/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.rsrc/zsh/wezterm.sh
 
-# Use starship if installed; otherwise, simple prompt.
+# Basic prompt.
+ssh_host() {
+  # Show host only when connected via SSH.
+  [[ "$SSH_CONNECTION" != '' ]] && echo "%m:" || echo ""
+}
+autoload -U colors && colors
+setopt prompt_subst
 ZLE_RPROMPT_INDENT=0
-if which starship >/dev/null 2>&1 ; then
-    eval "$(starship init zsh)"
-else
-    ssh_host() {
-      # Show host only when connected via SSH.
-      [[ "$SSH_CONNECTION" != '' ]] && echo "%m:" || echo ""
+PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
+RPROMPT="%{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
+
+# VCS status in prompt.
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:git*' formats "%{$fg[green]%}%b%u%c%{$reset_color%}"
+
+# A funky async right-hand prompt, inspired by:
+# https://anishathalye.com/an-asynchronous-shell-prompt/
+BASIC_RPROMPT=$RPROMPT
+ASYNC_PROC=0
+function precmd() {
+    function async() {
+        vcs_info
+        printf "%s" "${vcs_info_msg_0_} $BASIC_RPROMPT" > "/tmp/zsh_prompt_$$"
+        kill -s USR1 $$
     }
-    autoload -U colors && colors
-    setopt prompt_subst
-    RPROMPT="%{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
-    PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
-fi
+    if [[ "${ASYNC_PROC}" != 0 ]]; then
+        kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
+    fi
+    async &!
+    ASYNC_PROC=$!
+}
+function TRAPUSR1() {
+    RPROMPT="$(cat /tmp/zsh_prompt_$$)"
+    ASYNC_PROC=0
+    zle && zle reset-prompt
+}
 
 # Control cursor shape, even in vi mode, using DECSCUSR.
 # https://ghostty.org/docs/vt/esc/decscusr
