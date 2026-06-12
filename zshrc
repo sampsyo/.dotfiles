@@ -1,5 +1,6 @@
 # Plugins.
-fpath=(~/.rsrc/zsh/zsh-completions/src $fpath)
+fpath+=~/.rsrc/zsh/zsh-completions/src
+fpath+=~/.rsrc/zsh/zsh-jj/functions
 source ~/.rsrc/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.rsrc/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
 source ~/.rsrc/zsh/wezterm.sh
@@ -17,10 +18,11 @@ RPROMPT="%{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
 
 # VCS status in prompt.
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:*' enable jj git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%{$fg[red]%}M%{$reset_color%}'
 zstyle ':vcs_info:*' stagedstr '%{$fg[magenta]%}M%{$reset_color%}'
+zstyle ':vcs_info:jj*' formats "%u%c%{$fg[green]%}%b%{$fg[yellow]%}%m%{$reset_color%}"
 zstyle ':vcs_info:git*' formats "%u%c%m%{$fg[green]%}%b%{$reset_color%}"
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 +vi-git-untracked() {
