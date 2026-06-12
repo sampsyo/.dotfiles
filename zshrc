@@ -22,8 +22,7 @@ zstyle ':vcs_info:*' enable jj git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%{$fg[red]%}M%{$reset_color%}'
 zstyle ':vcs_info:*' stagedstr '%{$fg[magenta]%}M%{$reset_color%}'
-zstyle ':vcs_info:jj*' formats "%u%c%{$fg[green]%}%b%{$fg[yellow]%}%m%{$reset_color%}"
-zstyle ':vcs_info:git*' formats "%u%c%m%{$fg[green]%}%b%{$reset_color%}"
+zstyle ':vcs_info:*' formats "%u%c%m %{$fg[green]%}%b %r/%S%{$reset_color%}"
 zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 +vi-git-untracked() {
   if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
@@ -35,13 +34,14 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
 
 # A funky async right-hand prompt, inspired by:
 # https://anishathalye.com/an-asynchronous-shell-prompt/
-BASIC_RPROMPT=$RPROMPT
 ASYNC_PROC=0
 function precmd() {
     function async() {
         vcs_info
-        printf "%s" "${vcs_info_msg_0_} $BASIC_RPROMPT" > "/tmp/zsh_prompt_$$"
-        kill -s USR1 $$
+        if [ ! -z "${vcs_info_msg_0_}" ] ; then
+            printf "%s" "${vcs_info_msg_0_}" > "/tmp/zsh_prompt_$$"
+            kill -s USR1 $$
+        fi
     }
     if [[ "${ASYNC_PROC}" != 0 ]]; then
         kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
