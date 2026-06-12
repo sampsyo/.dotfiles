@@ -51,7 +51,6 @@ prompt_precmd() {
     async_flush_jobs prompt_worker
     async_job prompt_worker prompt_job $PWD
 }
-autoload -Uz async && async
 async_start_worker prompt_worker
 async_register_callback prompt_worker prompt_callback
 add-zsh-hook precmd prompt_precmd
