@@ -1,6 +1,7 @@
 [user]
 	name = Adrian Sampson
 	email = adrian@radbox.org
+    signingkey = ~/.ssh/id_ed25519.pub
 
 [alias]
     reverth = reset --hard
@@ -49,7 +50,5 @@
 	gpgSign = true
 [gpg]
 	format = ssh
-[gpg "ssh"]
-	defaultKeyCommand = sh -c 'echo key::$(ssh-add -L)'
 [interactive]
     diffFilter = delta --color-only
