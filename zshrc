@@ -1,9 +1,9 @@
 # Plugins.
 fpath+=~/.rsrc/zsh/zsh-completions/src
 fpath+=~/.rsrc/zsh/zsh-jj/functions
+source ~/.rsrc/zsh/zsh-async/async.zsh
 source ~/.rsrc/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.rsrc/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.rsrc/zsh/wezterm.sh
 
 # Basic prompt.
 ssh_host() {
@@ -32,28 +32,29 @@ zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
   fi
 }
 
-# A funky async right-hand prompt, inspired by:
-# https://anishathalye.com/an-asynchronous-shell-prompt/
-ASYNC_PROC=0
-function precmd() {
-    function async() {
-        vcs_info
-        if [ ! -z "${vcs_info_msg_0_}" ] ; then
-            printf "%s" "${vcs_info_msg_0_}" > "/tmp/zsh_prompt_$$"
-            kill -s USR1 $$
-        fi
-    }
-    if [[ "${ASYNC_PROC}" != 0 ]]; then
-        kill -s HUP $ASYNC_PROC >/dev/null 2>&1 || :
+# An async right-hand prompt, using zsh-async.
+BASIC_RPROMPT=$RPROMPT
+prompt_callback() {
+    if [ ! -z "$3" ] ; then
+        RPROMPT=$3
+    else
+        RPROMPT=$BASIC_RPROMPT
     fi
-    async &!
-    ASYNC_PROC=$!
-}
-function TRAPUSR1() {
-    RPROMPT="$(cat /tmp/zsh_prompt_$$)"
-    ASYNC_PROC=0
     zle && zle reset-prompt
 }
+prompt_job() {
+    cd -q $1
+    vcs_info
+    print ${vcs_info_msg_0_}
+}
+prompt_precmd() {
+    async_flush_jobs prompt_worker
+    async_job prompt_worker prompt_job $PWD
+}
+autoload -Uz async && async
+async_start_worker prompt_worker
+async_register_callback prompt_worker prompt_callback
+add-zsh-hook precmd prompt_precmd
 
 # Control cursor shape, even in vi mode, using DECSCUSR.
 # https://ghostty.org/docs/vt/esc/decscusr
