@@ -22,14 +22,28 @@ zstyle ':vcs_info:*' enable jj git
 zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '%{$fg[red]%}M%{$reset_color%}'
 zstyle ':vcs_info:*' stagedstr '%{$fg[magenta]%}M%{$reset_color%}'
-zstyle ':vcs_info:*' formats "%u%c%m %{$fg[green]%}%b %r/%S%{$reset_color%}"
-zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
+zstyle ':vcs_info:*' formats '%u%c%m %{$fg[green]%}%b %r/%S%{$reset_color%}'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-st
 +vi-git-untracked() {
-  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
-     git status --porcelain | grep -m 1 '^??' &>/dev/null
-  then
-    hook_com[misc]='%{$fg[yellow]%}?%{$reset_color%}'
-  fi
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+       git status --porcelain | grep -m 1 '^??' &>/dev/null
+    then
+       hook_com[misc]='%{$fg[yellow]%}?%{$reset_color%}'
+    fi
+}
++vi-git-st() {
+    # Adapted from vcs_info-examples.
+    local ahead behind
+    local -a gitstatus
+    git rev-parse ${hook_com[branch]}@{upstream} >/dev/null 2>&1 || return 0
+    local -a ahead_and_behind=(
+        $(git rev-list --left-right --count HEAD...${hook_com[branch]}@{upstream} 2>/dev/null)
+    )
+    ahead=${ahead_and_behind[1]}
+    behind=${ahead_and_behind[2]}
+    (( $ahead )) && gitstatus+=( "↑${ahead}" )
+    (( $behind )) && gitstatus+=( "↓${behind}" )
+    hook_com[misc]+="%{$fg[yellow]%}${(j:/:)gitstatus}%{$reset_color%}"
 }
 
 # An async right-hand prompt, using zsh-async.
