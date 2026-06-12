@@ -19,7 +19,17 @@ RPROMPT="%{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:git*' formats "%{$fg[green]%}%b%u%c%{$reset_color%}"
+zstyle ':vcs_info:*' unstagedstr '%{$fg[red]%}M%{$reset_color%}'
+zstyle ':vcs_info:*' stagedstr '%{$fg[magenta]%}M%{$reset_color%}'
+zstyle ':vcs_info:git*' formats "%u%c%m%{$fg[green]%}%b%{$reset_color%}"
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked
++vi-git-untracked() {
+  if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+     git status --porcelain | grep -m 1 '^??' &>/dev/null
+  then
+    hook_com[misc]='%{$fg[yellow]%}?%{$reset_color%}'
+  fi
+}
 
 # A funky async right-hand prompt, inspired by:
 # https://anishathalye.com/an-asynchronous-shell-prompt/
