@@ -15,10 +15,12 @@ export PATH=/usr/local/opt/ruby/bin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$HOME/.deno/bin:$PATH
 
-# Homebrew path.
+# Homebrew.
 if [ -d /opt/homebrew ] ; then
     eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
+export HOMEBREW_NO_ASK=1
+export HOMEBREW_NO_ENV_HINTS=1
 
 export EDITOR=vim
 
