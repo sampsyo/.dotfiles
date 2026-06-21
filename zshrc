@@ -1,23 +1,77 @@
 # Plugins.
-fpath=(~/.rsrc/zsh/zsh-completions/src $fpath)
+fpath+=~/.rsrc/zsh/zsh-completions/src
+fpath+=~/.rsrc/zsh/zsh-jj/functions
+source ~/.rsrc/zsh/zsh-async/async.zsh
 source ~/.rsrc/zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source ~/.rsrc/zsh/zsh-history-substring-search/zsh-history-substring-search.zsh
-source ~/.rsrc/zsh/wezterm.sh
 
-# Use starship if installed; otherwise, simple prompt.
+# Basic prompt.
+ssh_host() {
+  # Show host only when connected via SSH.
+  [[ "$SSH_CONNECTION" != '' ]] && echo "%m:" || echo ""
+}
+autoload -U colors && colors
+setopt prompt_subst
 ZLE_RPROMPT_INDENT=0
-if which starship >/dev/null 2>&1 ; then
-    eval "$(starship init zsh)"
-else
-    ssh_host() {
-      # Show host only when connected via SSH.
-      [[ "$SSH_CONNECTION" != '' ]] && echo "%m:" || echo ""
-    }
-    autoload -U colors && colors
-    setopt prompt_subst
-    RPROMPT="%{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
-    PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
-fi
+PROMPT="%(!|%{$fg[red]%}#|%{$fg[green]%}$) %{$reset_color%}"
+RPROMPT="%{$fg[green]%}\$(ssh_host)%~%{$reset_color%}"
+
+# VCS status in prompt.
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable jj git
+zstyle ':vcs_info:*' check-for-changes true
+zstyle ':vcs_info:*' unstagedstr '%{$fg[red]%}M%{$reset_color%}'
+zstyle ':vcs_info:*' stagedstr '%{$fg[magenta]%}M%{$reset_color%}'
+zstyle ':vcs_info:*' formats '%u%c%m %{$fg[green]%}%b %r/%S%{$reset_color%}'
+zstyle ':vcs_info:git*+set-message:*' hooks git-untracked git-st
++vi-git-untracked() {
+    if [[ $(git rev-parse --is-inside-work-tree 2> /dev/null) == 'true' ]] && \
+       git status --porcelain | grep -m 1 '^??' &>/dev/null
+    then
+       hook_com[misc]='%{$fg[yellow]%}?%{$reset_color%}'
+    fi
+}
++vi-git-st() {
+    # Adapted from vcs_info-examples.
+    local ahead behind
+    local -a gitstatus
+    git rev-parse ${hook_com[branch]}@{upstream} >/dev/null 2>&1 || return 0
+    local -a ahead_and_behind=(
+        $(git rev-list --left-right --count HEAD...${hook_com[branch]}@{upstream} 2>/dev/null)
+    )
+    ahead=${ahead_and_behind[1]}
+    behind=${ahead_and_behind[2]}
+    (( $ahead )) && gitstatus+=( "↑${ahead}" )
+    (( $behind )) && gitstatus+=( "↓${behind}" )
+    hook_com[misc]+="%{$fg[yellow]%}${(j:/:)gitstatus}%{$reset_color%}"
+}
+
+# An async right-hand prompt, using zsh-async.
+BASIC_RPROMPT=$RPROMPT
+prompt_callback() {
+    if [ ! -z "$3" ] ; then
+        RPROMPT=$3
+    else
+        RPROMPT=$BASIC_RPROMPT
+    fi
+    zle && zle reset-prompt
+}
+prompt_job() {
+    cd -q $1
+    vcs_info
+    print ${vcs_info_msg_0_}
+}
+prompt_precmd() {
+    # Reset the prompt to avoid showing stale data.
+    RPROMPT="… $BASIC_RPROMPT"
+    zle && zle reset-prompt
+    # Then, compute a real prompt.
+    async_flush_jobs prompt_worker
+    async_job prompt_worker prompt_job $PWD
+}
+async_start_worker prompt_worker
+async_register_callback prompt_worker prompt_callback
+add-zsh-hook precmd prompt_precmd
 
 # Control cursor shape, even in vi mode, using DECSCUSR.
 # https://ghostty.org/docs/vt/esc/decscusr
@@ -167,11 +221,3 @@ zstyle -e ':completion:*:*:ssh:*:my-accounts' users-hosts \
 
 # Autocomplete z like cd.
 compdef __zoxide_z=cd
-
-# Ensure ssh-agent is running.
-if ! ps -ef | grep "[s]sh-agent" &>/dev/null; then
-    eval $(ssh-agent -s)
-fi
-if ! ssh-add -l &>/dev/null; then
-     ssh-add
-fi

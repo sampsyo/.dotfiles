@@ -7,7 +7,7 @@ email = "adrian@radbox.org"
 [signing]
 behavior = "own"
 backend = "ssh"
-key = "~/.ssh/id_rsa.pub"
+key = "~/.ssh/id_ed25519.pub"
 
 [revsets]
 log = "ancestors(@, 8) | ancestors(immutable_heads().., 2) | present(trunk())"

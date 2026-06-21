@@ -23,9 +23,9 @@ cd ~/.rsrc/zsh
 [ -d zsh-history-substring-search ] || git clone https://github.com/zsh-users/zsh-history-substring-search.git
 [ -d zsh-syntax-highlighting ] || git clone https://github.com/zsh-users/zsh-syntax-highlighting.git
 [ -d zsh-completions ] || git clone https://github.com/zsh-users/zsh-completions.git
-[ -f wezterm.sh ] || curl -LO https://raw.githubusercontent.com/wez/wezterm/main/assets/shell-integration/wezterm.sh
+[ -d zsh-async ] || git clone https://github.com/mafredri/zsh-async.git
+[ -d zsh-jj ] || git clone https://github.com/rkh/zsh-jj.git
 cd ../..
 
 echo 'remember:'
-echo '$ pip install flake8'
 echo '$ vim +PlugInstall +qall'
