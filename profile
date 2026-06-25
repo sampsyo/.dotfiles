@@ -11,7 +11,7 @@ export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:/usr/sbin:/sbin
 export PATH=$PATH:~/.node_modules/bin
 export PATH=$HOME/.cargo/bin:$PATH
-export PATH=/usr/local/opt/ruby/bin:$PATH
+export PATH=/usr/local/opt/ruby/bin:/opt/homebrew/opt/ruby/bin:$PATH
 export PATH=$HOME/.yarn/bin:$PATH
 export PATH=$HOME/.deno/bin:$PATH
 
